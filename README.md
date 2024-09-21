@@ -12,6 +12,7 @@
 * The main file of our project will be the main.py file. Operations will be executed from this file, other Python files will be called from this section as a module. For example, adding a book, deleting a book, adding a member, giving a book to a member, and member control will be done here.
 
  ![image](https://github.com/werhereitacademy/week_4/assets/141542413/fd0ea3eb-d5cc-4991-b67d-94ebf42ee8d9)
+ 
 
 * Below you will see a run output of this project. You can run the functions in the book_transactions and membership_transactions modules via inputs on the main page.
 
