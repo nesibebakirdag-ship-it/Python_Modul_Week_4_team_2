@@ -17,13 +17,14 @@
 
 * Below you will see a run output of this project. You can run the functions in the book_transactions and membership_transactions modules via inputs on the main page.
 
+![image](https://github.com/user-attachments/assets/2d30ee9c-61f1-4f25-bc79-0047ddb20dd3)
 
 
 
 ##### book_transactions.py :
 * In this module, you will write book information (registered books and total number), add, delete, search and update functions. We will save our data in the book.json file. The Kitap.json file will be given to you (you can create it yourself if you wish). File control must be done with the Os Module. Below you can find function examples for book transactions, but you do not have to follow them, you can make your own planning.
 
- ![image](https://github.com/werhereitacademy/week_4/assets/141542413/753abd94-38de-417e-afd8-0540ba8aa591)
+ 
 
 * There is a lot of data in the Kitap.json file. We will work with the following data. We will use these as basis when adding new data or searching.
 
