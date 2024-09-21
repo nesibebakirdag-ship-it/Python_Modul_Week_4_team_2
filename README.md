@@ -35,13 +35,15 @@
 ##### Book.json :
 sample output is as follows
 
-![image](https://github.com/werhereitacademy/week_4/assets/141542413/caaecfd5-db10-4bc7-985b-0f1a4fb208d4)
+![image](https://github.com/user-attachments/assets/3780f27f-bb09-4217-add2-33195611a27b)
+
 
 ##### Membership_transactions.py:
 * Here, operations such as member information (member names and total number of members), member updating, adding members, searching for members, deleting members, lending books and returning books will be performed. Additionally, members must be saved in the uye.Json file. When lending a book, it is absolutely
 * - The date and time the book was lent and the date to return it after 2 weeks should be added and this information should be saved in the taksi.json file.
 
-![image](https://github.com/werhereitacademy/week_4/assets/141542413/6728d7fa-2aa2-49a8-b843-cccd9a397311)
+![image](https://github.com/user-attachments/assets/d3710c5a-f54b-4e09-996a-caac2dafe49f)
+
 
 * We will do this from the py module when we create it ourselves.
 * - After being saved in the taksi.json file, the loaned book should be deleted from Kitap.json so that it does not appear when someone else wants to buy it.
