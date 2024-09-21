@@ -42,28 +42,32 @@ sample output is as follows
 * Here, operations such as member information (member names and total number of members), member updating, adding members, searching for members, deleting members, lending books and returning books will be performed. Additionally, members must be saved in the uye.Json file. When lending a book, it is absolutely
 * - The date and time the book was lent and the date to return it after 2 weeks should be added and this information should be saved in the taksi.json file.
 
-![image](https://github.com/user-attachments/assets/d3710c5a-f54b-4e09-996a-caac2dafe49f)
+![image](https://github.com/user-attachments/assets/58ee969c-ea74-49bc-a03c-ee63e2ad4413)
 
 
 * We will do this from the py module when we create it ourselves.
 * - After being saved in the taksi.json file, the loaned book should be deleted from Kitap.json so that it does not appear when someone else wants to buy it.
 ##### Note: You will create the user.json and tracking.json file yourself.
 
-![image](https://github.com/werhereitacademy/week_4/assets/141542413/49f04d87-bece-4493-b62f-022cfa3d9201)
+![image](https://github.com/user-attachments/assets/5990440f-ad1f-4610-9876-72567d88c6de)
+
 
 * The data you will save to Uye.json should be as follows:
 
- ![image](https://github.com/werhereitacademy/week_4/assets/141542413/8761111e-11f6-47ba-9605-cc8b33be84b3)
+ ![image](https://github.com/user-attachments/assets/476e0143-9948-4cb1-a835-c2516c02b838)
+
 
 ##### time.py :
 * We lend our books to our members for 2 weeks. Therefore, we will record the time and date of the loan and the date when it should be returned, thanks to this module.
 When we run this module, we want it to return the current time and the time 2 weeks later.
 
-![image](https://github.com/werhereitacademy/week_4/assets/141542413/7a7c7274-32ef-42e9-b3c7-9d2094752893)
+![image](https://github.com/user-attachments/assets/4edebd25-8af2-4410-83db-a04ed2a84069)
+
 
 ##### The data you will save in tracking.json should be as follows:
 
-![image](https://github.com/werhereitacademy/week_4/assets/141542413/3948f87d-bf87-49a6-a9d6-75bcdf155afd)
+![image](https://github.com/user-attachments/assets/da7fc6ed-900e-4ac2-87fb-e374bdae41ef)
+
 
 ## Hackerrank Questions
 
