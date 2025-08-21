@@ -1,72 +1,72 @@
 # Python_Modul_Week_4
 
-# Library Project
-- In this project, we want you to write a library program using the Python information you have learned so far, error catching - file operations, especially the Json module and file information.
-- In a library; There are two main parts: Membership transactions and Book transactions.
-- Membership transactions include information on adding a member, deleting a member, checking a member, giving a book to a member, and receiving a returned book from a member. A database or file where membership data is recorded is also required.
-- We can say similar things about book transactions.
+* In this assignment, you are expected to complete the interface of the Python module graduation project on the page [https://werhere-it-academy.gitbook.io/werhere-it-academy-handbook/python-modulu/modul-project/crm.v2](https://werhere-it-academy.gitbook.io/werhere-it-academy-handbook/it-fundamentals-eng/python-module/modul-project/crm)  with an original work.
 
-#### To detail the project:
- * It will consist of main.py, Kitap_transactions.py, Member_Transactions.py, Zaman.py files.
-##### Main.py:
-* The main file of our project will be the main.py file. Operations will be executed from this file, other Python files will be called from this section as a module. For example, adding a book, deleting a book, adding a member, giving a book to a member, and member control will be done here.
+## Interface login window
+* Create a customized login page for the application. This page contains the following features
+1. Two separate input elements for user and password.
+2. It will react to these two pieces of information and click the next entry button.
+3. A warning text to indicate whether the button was successful or not when clicked.
+* Optionally, you can add another button to close the application and remove the window image.
+* Create a customized login window using consistent background colors, box edge shapes, button features (hover, pressed, rounded edge), different fonts and colors for texts.
+* Tip: By placing a frame first and placing the elements on it, you can create a dynamic dimension for both the frame and the elements you place on it by using layout and spacer.
 
-![image](https://github.com/user-attachments/assets/a27bdecd-d799-4868-8241-cd559c560747)
+## Preference-Menu
+* It should show three buttons that will direct a user to three different windows when he/she logs in successfully.
+1. Applications The menu-applications button should direct the user to the first application window.
+2. Mentor Meeting - the mentor meeting button should direct the user to the mentor window.
+3.Interviews - the interviews button should direct the user to the interviews window
+4. Add a Close button to exit the application.
+* Differentiate this from the previous input window in a consistent way (colour, format, etc.).
 
- 
+## Preference-Admin-Menu
+* It should display four different buttons that will direct an admin who logs in successfully to four different windows.
+1. It should be able to access the 3 different menus that Preference-Menu can access, as well as the Admin Menu.
+2. It should contain a Close button.
+* Windows must be consistently different from previous windows (input) (colour, shape, etc.).
 
-* Below you will see a run output of this project. You can run the functions in the book_transactions and membership_transactions modules via inputs on the main page.
+## Applications Page
+* The interface will open when the Applications button is clicked in the preferences. It must contain water elements.
+1. Search button and Input box - a box to enter text and a button to which we will add the search function
+2. All Applications button: It should display all records in the Applications file.
+3. Mentor Meeting Defined Button: It should display the data in the Relevant Column in the Applications file on the screen.
+4. Mentor Interview Undefined button: It should display the data in the Relevant Column in the Applications file on the screen.
+5. A 7-column table that will allow the data to be called by the three buttons at the top to be displayed on the screen in the form of columns and rows when called.
+6. Return to Preferences Screen Button - A button that will allow you to return to the Preferences Menu. Note: If the person logged in is admin, it should return to the Preferences-Admin Screen.
+* Each window design should be consistently differentiated from other window designs (colour, shape, frame border colors of buttons, transparent background color of the table, etc.).
+* Depending on your busy schedule, you can also add separate buttons showing VIT1 and VIT2 file records here.
+* Again, differentiate this page from other pages in a consistent way (color, format, frame border colors of buttons, transparent background color of the table, etc.).
 
-![image](https://github.com/user-attachments/assets/2d30ee9c-61f1-4f25-bc79-0047ddb20dd3)
+## Mentor Interview Page
+* The interface will open when the Mentor Meeting button is pressed. It should contain the following elements:
+1. Search button and Input box - a box to enter text and a button to which we will add the search function
+2. All Conversations - This is a button that will call all the data in the Mentor File into the table.
+3. Multiple tabs - add a tool that opens down when hovered over, showing multiple options. Tip: Combobox>Edit Items. Note: You can find Multi-Tab data on page 2 of the Mentor File! This tab functions to print the data in the relevant column in the Mentor File to the screen.
+* hint: Combobox > Edit Items
+4. Return to Preferences Screen button.
+Note: If the logged in person is admin, he/she should go back to Preferences-Admin Screen.
 
+## Interviews page
+* The interface will be called when you press the interviews button on the menu page. It should contain the following elements:
+1. Search button and Input box - a box to enter text and a button to which we will add the search function
+2. Project Submitted Button: The data in the relevant column in the Interviews File should appear on the screen.
+3. Project Submitted Button: The data in the relevant column in the Interview File should appear on the screen.
+4. Return to preferences screen button. Note: If the person logged in is admin, they should return to the Preferences-Admin Screen.
+* You can delete the window image around each page and replace it with a button to close the application.
 
-
-##### book_transactions.py :
-* In this module, you will write book information (registered books and total number), add, delete, search and update functions. We will save our data in the book.json file. The Kitap.json file will be given to you (you can create it yourself if you wish). File control must be done with the Os Module. Below you can find function examples for book transactions, but you do not have to follow them, you can make your own planning.
-
- ![image](https://github.com/user-attachments/assets/b348be3e-e595-4e4c-9e2d-7913b81404ae)
-
-
-* There is a lot of data in the Kitap.json file. We will work with the following data. We will use these as basis when adding new data or searching.
-
- ![image](https://github.com/user-attachments/assets/8d10fede-3e71-49da-88ad-8bfef0941422)
-
-
-##### Book.json :
-sample output is as follows
-
-![image](https://github.com/user-attachments/assets/3780f27f-bb09-4217-add2-33195611a27b)
-
-
-##### Membership_transactions.py:
-* Here, operations such as member information (member names and total number of members), member updating, adding members, searching for members, deleting members, lending books and returning books will be performed. Additionally, members must be saved in the uye.Json file. When lending a book, it is absolutely
-* - The date and time the book was lent and the date to return it after 2 weeks should be added and this information should be saved in the taksi.json file.
-
-![image](https://github.com/user-attachments/assets/58ee969c-ea74-49bc-a03c-ee63e2ad4413)
-
-
-* We will do this from the py module when we create it ourselves.
-* - After being saved in the taksi.json file, the loaned book should be deleted from Kitap.json so that it does not appear when someone else wants to buy it.
-##### Note: You will create the user.json and tracking.json file yourself.
-
-![image](https://github.com/user-attachments/assets/5990440f-ad1f-4610-9876-72567d88c6de)
-
-
-* The data you will save to Uye.json should be as follows:
-
- ![image](https://github.com/user-attachments/assets/476e0143-9948-4cb1-a835-c2516c02b838)
-
-
-##### time.py :
-* We lend our books to our members for 2 weeks. Therefore, we will record the time and date of the loan and the date when it should be returned, thanks to this module.
-When we run this module, we want it to return the current time and the time 2 weeks later.
-
-![image](https://github.com/user-attachments/assets/4edebd25-8af2-4410-83db-a04ed2a84069)
+## Admin Menu
+1. Event Registration Button
+When the Event Recording Button is clicked, the records of the Events in Google Calendar should be displayed. It is up to your preference to add e-mail addresses, meeting location, etc. features here. The format was created as Meeting Title, Start Time, participant e-mail address and organizer e-mail address.
+2. Mail Button
+When you click on the Mail Button, e-mails should be sent to the e-mail addresses registered in the events in Google Calendar. If preferred, the e-mail delivered information can also be displayed on the screen as a message.
+3. Preferences - Return to Admin Screen Button
+When the Preferences-Return to Admin Screen button is clicked, the admin should return to the Preferences-Admin screen.
+4. Exit Button
+* When the Exit Button is clicked, the admin must exit the application.
 
 
-##### The data you will save in tracking.json should be as follows:
-
-![image](https://github.com/user-attachments/assets/da7fc6ed-900e-4ac2-87fb-e374bdae41ef)
+## Page Latency
+* Add functionalities to the 'Return to Preferences screen' buttons on the home page, the Preferences menu and on each page, and test the transitions between pages.
 
 
 ## Hackerrank Questions
@@ -78,3 +78,5 @@ When we run this module, we want it to return the current time and the time 2 we
 3. Counter game: https://www.hackerrank.com/challenges/counter-game/problem
 
 4. Time Delta: https://www.hackerrank.com/challenges/python-time-delta/problem
+
+5. Utopian Tree: https://www.hackerrank.com/challenges/utopian-tree/problem
