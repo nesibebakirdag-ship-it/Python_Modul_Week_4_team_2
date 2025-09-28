@@ -12,11 +12,26 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(800, 589)
+        MainWindow.resize(799, 594)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Fixed, QtWidgets.QSizePolicy.Policy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
+        MainWindow.setSizePolicy(sizePolicy)
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Fixed, QtWidgets.QSizePolicy.Policy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.centralwidget.sizePolicy().hasHeightForWidth())
+        self.centralwidget.setSizePolicy(sizePolicy)
         self.centralwidget.setObjectName("centralwidget")
         self.frame = QtWidgets.QFrame(parent=self.centralwidget)
         self.frame.setGeometry(QtCore.QRect(9, 9, 781, 551))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Fixed, QtWidgets.QSizePolicy.Policy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.frame.sizePolicy().hasHeightForWidth())
+        self.frame.setSizePolicy(sizePolicy)
         self.frame.setAutoFillBackground(True)
         self.frame.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
@@ -44,7 +59,8 @@ class Ui_MainWindow(object):
         self.pushButton.setFont(font)
         self.pushButton.setStyleSheet("background-color: rgb(182, 182, 182);\n"
 "background-color: qlineargradient(spread:pad, x1:0.511364, y1:1, x2:0.489, y2:0, stop:0 rgba(86, 86, 86, 255), stop:1 rgba(255, 255, 255, 255));\n"
-"background-color: qlineargradient(spread:pad, x1:0.511364, y1:1, x2:0.489, y2:0, stop:0 rgba(86, 86, 86, 255), stop:1 rgba(255, 255, 255, 255));")
+"background-color: qlineargradient(spread:pad, x1:0.511364, y1:1, x2:0.489, y2:0, stop:0 rgba(86, 86, 86, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"color: rgbrgb(0, 0, 0)")
         self.pushButton.setObjectName("pushButton")
         self.pushButton_2 = QtWidgets.QPushButton(parent=self.frame_2)
         self.pushButton_2.setGeometry(QtCore.QRect(90, 180, 141, 31))
@@ -55,7 +71,8 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.pushButton_2.setFont(font)
         self.pushButton_2.setStyleSheet("background-color: rgb(182, 182, 182);\n"
-"background-color: qlineargradient(spread:pad, x1:0.511364, y1:1, x2:0.489, y2:0, stop:0 rgba(86, 86, 86, 255), stop:1 rgba(255, 255, 255, 255));")
+"background-color: qlineargradient(spread:pad, x1:0.511364, y1:1, x2:0.489, y2:0, stop:0 rgba(86, 86, 86, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"color: rgb(0, 0, 0)")
         self.pushButton_2.setObjectName("pushButton_2")
         self.pushButton_3 = QtWidgets.QPushButton(parent=self.frame_2)
         self.pushButton_3.setGeometry(QtCore.QRect(350, 102, 141, 31))
@@ -67,7 +84,8 @@ class Ui_MainWindow(object):
         self.pushButton_3.setFont(font)
         self.pushButton_3.setStyleSheet("background-color: rgb(182, 182, 182);\n"
 "background-color: qlineargradient(spread:pad, x1:0.511364, y1:1, x2:0.489, y2:0, stop:0 rgba(86, 86, 86, 255), stop:1 rgba(255, 255, 255, 255));\n"
-"background-color: qlineargradient(spread:pad, x1:0.511364, y1:1, x2:0.54, y2:0, stop:0 rgba(82, 82, 82, 255), stop:1 rgba(255, 255, 255, 255));")
+"background-color: qlineargradient(spread:pad, x1:0.511364, y1:1, x2:0.54, y2:0, stop:0 rgba(82, 82, 82, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"color: rgbrgb(0, 0, 0)")
         self.pushButton_3.setObjectName("pushButton_3")
         self.pushButton_4 = QtWidgets.QPushButton(parent=self.frame_2)
         self.pushButton_4.setGeometry(QtCore.QRect(350, 180, 141, 31))
@@ -79,7 +97,7 @@ class Ui_MainWindow(object):
         self.pushButton_4.setFont(font)
         self.pushButton_4.setStyleSheet("background-color: rgb(182, 182, 182);\n"
 "background-color: qlineargradient(spread:pad, x1:0.511364, y1:1, x2:0.489, y2:0, stop:0 rgba(86, 86, 86, 255), stop:1 rgba(255, 255, 255, 255));\n"
-"")
+"color:rgb(0, 0, 0)")
         self.pushButton_4.setObjectName("pushButton_4")
         self.frame_3 = QtWidgets.QFrame(parent=self.frame)
         self.frame_3.setGeometry(QtCore.QRect(170, 190, 441, 41))
@@ -101,7 +119,7 @@ class Ui_MainWindow(object):
         self.label_2.setObjectName("label_2")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 799, 21))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(parent=MainWindow)

@@ -6,14 +6,26 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>589</height>
+    <width>799</width>
+    <height>594</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
    <widget class="QFrame" name="frame">
     <property name="geometry">
      <rect>
@@ -22,6 +34,12 @@
       <width>781</width>
       <height>551</height>
      </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
     </property>
     <property name="autoFillBackground">
      <bool>true</bool>
@@ -45,7 +63,7 @@
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>logo2.png</pixmap>
+      <pixmap>logo.png</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
@@ -92,7 +110,8 @@
       <property name="styleSheet">
        <string notr="true">background-color: rgb(182, 182, 182);
 background-color: qlineargradient(spread:pad, x1:0.511364, y1:1, x2:0.489, y2:0, stop:0 rgba(86, 86, 86, 255), stop:1 rgba(255, 255, 255, 255));
-background-color: qlineargradient(spread:pad, x1:0.511364, y1:1, x2:0.489, y2:0, stop:0 rgba(86, 86, 86, 255), stop:1 rgba(255, 255, 255, 255));</string>
+background-color: qlineargradient(spread:pad, x1:0.511364, y1:1, x2:0.489, y2:0, stop:0 rgba(86, 86, 86, 255), stop:1 rgba(255, 255, 255, 255));
+color: rgbrgb(0, 0, 0)</string>
       </property>
       <property name="text">
        <string>Applications</string>
@@ -117,7 +136,8 @@ background-color: qlineargradient(spread:pad, x1:0.511364, y1:1, x2:0.489, y2:0,
       </property>
       <property name="styleSheet">
        <string notr="true">background-color: rgb(182, 182, 182);
-background-color: qlineargradient(spread:pad, x1:0.511364, y1:1, x2:0.489, y2:0, stop:0 rgba(86, 86, 86, 255), stop:1 rgba(255, 255, 255, 255));</string>
+background-color: qlineargradient(spread:pad, x1:0.511364, y1:1, x2:0.489, y2:0, stop:0 rgba(86, 86, 86, 255), stop:1 rgba(255, 255, 255, 255));
+color: rgb(0, 0, 0)</string>
       </property>
       <property name="text">
        <string>Interviews</string>
@@ -143,7 +163,8 @@ background-color: qlineargradient(spread:pad, x1:0.511364, y1:1, x2:0.489, y2:0,
       <property name="styleSheet">
        <string notr="true">background-color: rgb(182, 182, 182);
 background-color: qlineargradient(spread:pad, x1:0.511364, y1:1, x2:0.489, y2:0, stop:0 rgba(86, 86, 86, 255), stop:1 rgba(255, 255, 255, 255));
-background-color: qlineargradient(spread:pad, x1:0.511364, y1:1, x2:0.54, y2:0, stop:0 rgba(82, 82, 82, 255), stop:1 rgba(255, 255, 255, 255));</string>
+background-color: qlineargradient(spread:pad, x1:0.511364, y1:1, x2:0.54, y2:0, stop:0 rgba(82, 82, 82, 255), stop:1 rgba(255, 255, 255, 255));
+color: rgbrgb(0, 0, 0)</string>
       </property>
       <property name="text">
        <string>Mentor Meeting</string>
@@ -169,7 +190,7 @@ background-color: qlineargradient(spread:pad, x1:0.511364, y1:1, x2:0.54, y2:0, 
       <property name="styleSheet">
        <string notr="true">background-color: rgb(182, 182, 182);
 background-color: qlineargradient(spread:pad, x1:0.511364, y1:1, x2:0.489, y2:0, stop:0 rgba(86, 86, 86, 255), stop:1 rgba(255, 255, 255, 255));
-</string>
+color:rgb(0, 0, 0)</string>
       </property>
       <property name="text">
        <string>Exit</string>
@@ -232,7 +253,7 @@ background-color: qlineargradient(spread:pad, x1:0.511364, y1:1, x2:0.489, y2:0,
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>799</width>
      <height>21</height>
     </rect>
    </property>
