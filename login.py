@@ -16,7 +16,7 @@ class Ui_MainWindow(object):
         self.label_5 = QtWidgets.QLabel()
         self.label_5.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.label_5.setFixedSize(120, 120)
-        pixmap = QPixmap("./logo.png")
+        pixmap = QPixmap("./img/logo.png")
         pixmap = pixmap.scaled(self.label_5.size(), Qt.AspectRatioMode.KeepAspectRatio, Qt.TransformationMode.SmoothTransformation)
         self.label_5.setPixmap(pixmap)
         self.mainLayout.addWidget(self.label_5, alignment=Qt.AlignmentFlag.AlignCenter)
