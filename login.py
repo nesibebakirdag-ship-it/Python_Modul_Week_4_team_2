@@ -1,5 +1,6 @@
 from PyQt6 import QtCore, QtWidgets
-
+from PyQt6.QtGui import QPixmap
+from PyQt6.QtCore import Qt
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -12,10 +13,15 @@ class Ui_MainWindow(object):
         # Ana layout
         self.mainLayout = QtWidgets.QVBoxLayout(self.centralwidget)
 
-        # Başlık
-        self.label_5 = QtWidgets.QLabel("Image")
-        self.label_5.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-        self.mainLayout.addWidget(self.label_5)
+        self.label_5 = QtWidgets.QLabel()
+        self.label_5.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.label_5.setFixedSize(120, 120)
+        pixmap = QPixmap("./logo.png")
+        pixmap = pixmap.scaled(self.label_5.size(), Qt.AspectRatioMode.KeepAspectRatio, Qt.TransformationMode.SmoothTransformation)
+        self.label_5.setPixmap(pixmap)
+        self.mainLayout.addWidget(self.label_5, alignment=Qt.AlignmentFlag.AlignCenter)
+
+
 
         formLayout = QtWidgets.QFormLayout()
         self.textEdit = QtWidgets.QLineEdit()  # QTextEdit yerine QLineEdit daha uygun
