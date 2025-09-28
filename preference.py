@@ -24,7 +24,7 @@ class Ui_MainWindow(object):
         self.label = QtWidgets.QLabel(parent=self.frame)
         self.label.setGeometry(QtCore.QRect(166, 30, 391, 91))
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("logo2.png"))
+        self.label.setPixmap(QtGui.QPixmap("logo.png"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
         self.frame_2 = QtWidgets.QFrame(parent=self.frame)
