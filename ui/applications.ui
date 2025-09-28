@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>953</width>
-    <height>554</height>
+    <width>939</width>
+    <height>546</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,9 +18,9 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>0</y>
-      <width>951</width>
-      <height>551</height>
+      <y>10</y>
+      <width>941</width>
+      <height>651</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -226,6 +226,38 @@
      </property>
      <property name="text">
       <string>Exit</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>210</x>
+       <y>10</y>
+       <width>671</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../img/appsag.jpg</pixmap>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>0</y>
+       <width>151</width>
+       <height>91</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../img/application_sol.jpg</pixmap>
      </property>
     </widget>
    </widget>
