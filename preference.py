@@ -24,6 +24,8 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.centralwidget.sizePolicy().hasHeightForWidth())
         self.centralwidget.setSizePolicy(sizePolicy)
+        self.centralwidget.setMinimumSize(QtCore.QSize(1000, 1000))
+        self.centralwidget.setMaximumSize(QtCore.QSize(1000, 1000))
         self.centralwidget.setObjectName("centralwidget")
         self.frame = QtWidgets.QFrame(parent=self.centralwidget)
         self.frame.setGeometry(QtCore.QRect(9, 9, 781, 551))
@@ -60,7 +62,7 @@ class Ui_MainWindow(object):
         self.pushButton.setStyleSheet("background-color: rgb(182, 182, 182);\n"
 "background-color: qlineargradient(spread:pad, x1:0.511364, y1:1, x2:0.489, y2:0, stop:0 rgba(86, 86, 86, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "background-color: qlineargradient(spread:pad, x1:0.511364, y1:1, x2:0.489, y2:0, stop:0 rgba(86, 86, 86, 255), stop:1 rgba(255, 255, 255, 255));\n"
-"color: rgbrgb(0, 0, 0)")
+"color: rgb(0, 0, 0)")
         self.pushButton.setObjectName("pushButton")
         self.pushButton_2 = QtWidgets.QPushButton(parent=self.frame_2)
         self.pushButton_2.setGeometry(QtCore.QRect(90, 180, 141, 31))
@@ -85,7 +87,7 @@ class Ui_MainWindow(object):
         self.pushButton_3.setStyleSheet("background-color: rgb(182, 182, 182);\n"
 "background-color: qlineargradient(spread:pad, x1:0.511364, y1:1, x2:0.489, y2:0, stop:0 rgba(86, 86, 86, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "background-color: qlineargradient(spread:pad, x1:0.511364, y1:1, x2:0.54, y2:0, stop:0 rgba(82, 82, 82, 255), stop:1 rgba(255, 255, 255, 255));\n"
-"color: rgbrgb(0, 0, 0)")
+"color: rgb(0, 0, 0)")
         self.pushButton_3.setObjectName("pushButton_3")
         self.pushButton_4 = QtWidgets.QPushButton(parent=self.frame_2)
         self.pushButton_4.setGeometry(QtCore.QRect(350, 180, 141, 31))
