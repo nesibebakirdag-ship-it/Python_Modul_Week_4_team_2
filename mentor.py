@@ -12,18 +12,20 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1000, 1000)
+        MainWindow.resize(800, 550)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Fixed, QtWidgets.QSizePolicy.Policy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
         MainWindow.setSizePolicy(sizePolicy)
-        MainWindow.setMinimumSize(QtCore.QSize(1000, 1000))
-        MainWindow.setMaximumSize(QtCore.QSize(1000, 1000))
+        MainWindow.setMinimumSize(QtCore.QSize(800, 550))
+        MainWindow.setMaximumSize(QtCore.QSize(800, 550))
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
+        self.centralwidget.setMaximumSize(QtCore.QSize(800, 550))
         self.centralwidget.setObjectName("centralwidget")
         self.frame = QtWidgets.QFrame(parent=self.centralwidget)
-        self.frame.setGeometry(QtCore.QRect(0, 0, 791, 551))
+        self.frame.setGeometry(QtCore.QRect(0, 0, 791, 550))
+        self.frame.setMaximumSize(QtCore.QSize(800, 550))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(200, 170, 144))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
@@ -54,6 +56,7 @@ class Ui_MainWindow(object):
         self.frame.setObjectName("frame")
         self.label_2 = QtWidgets.QLabel(parent=self.frame)
         self.label_2.setGeometry(QtCore.QRect(100, 20, 261, 70))
+        self.label_2.setMaximumSize(QtCore.QSize(800, 550))
         self.label_2.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.ArrowCursor))
         self.label_2.setText("")
         self.label_2.setPixmap(QtGui.QPixmap("img/logo.png"))
@@ -61,6 +64,7 @@ class Ui_MainWindow(object):
         self.label_2.setObjectName("label_2")
         self.MENTORMENU = QtWidgets.QLabel(parent=self.frame)
         self.MENTORMENU.setGeometry(QtCore.QRect(380, 0, 521, 111))
+        self.MENTORMENU.setMaximumSize(QtCore.QSize(800, 550))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(71, 85, 90))
         brush.setStyle(QtCore.Qt.BrushStyle.SolidPattern)
@@ -103,14 +107,23 @@ class Ui_MainWindow(object):
         self.MENTORMENU.setObjectName("MENTORMENU")
         self.btn_search = QtWidgets.QPushButton(parent=self.frame)
         self.btn_search.setGeometry(QtCore.QRect(30, 270, 111, 21))
+        self.btn_search.setMaximumSize(QtCore.QSize(800, 550))
         self.btn_search.setAcceptDrops(False)
         self.btn_search.setAutoFillBackground(False)
-        self.btn_search.setStyleSheet("selection-background-color: rgb(162, 162, 162);\n"
+        self.btn_search.setStyleSheet("QPushButton {\n"
+"selection-background-color: rgb(162, 162, 162);\n"
 "background-color: rgb(200, 200, 200);\n"
-"color:rgb(0, 0, 0)")
+"color:rgb(0, 0, 0)\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"background-color:white;\n"
+"color:rgb(0, 0, 0)\n"
+"}")
         self.btn_search.setObjectName("btn_search")
         self.lineEdit_search = QtWidgets.QLineEdit(parent=self.frame)
         self.lineEdit_search.setGeometry(QtCore.QRect(30, 180, 113, 20))
+        self.lineEdit_search.setMaximumSize(QtCore.QSize(800, 550))
         self.lineEdit_search.setAutoFillBackground(False)
         self.lineEdit_search.setStyleSheet("background-color: rgb(200, 200, 200);\n"
 "color:rgb(0, 0, 0)")
@@ -118,17 +131,35 @@ class Ui_MainWindow(object):
         self.lineEdit_search.setObjectName("lineEdit_search")
         self.pushButton = QtWidgets.QPushButton(parent=self.frame)
         self.pushButton.setGeometry(QtCore.QRect(30, 360, 111, 21))
-        self.pushButton.setStyleSheet("background-color: rgb(207, 207, 207);\n"
-"color:rgb(0, 0, 0)")
+        self.pushButton.setMaximumSize(QtCore.QSize(800, 550))
+        self.pushButton.setStyleSheet("QPushButton {\n"
+"selection-background-color: rgb(162, 162, 162);\n"
+"background-color: rgb(200, 200, 200);\n"
+"color:rgb(0, 0, 0)\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"background-color:white;\n"
+"color:rgb(0, 0, 0)\n"
+"}")
         self.pushButton.setObjectName("pushButton")
         self.pushButton_2 = QtWidgets.QPushButton(parent=self.frame)
         self.pushButton_2.setGeometry(QtCore.QRect(30, 460, 111, 21))
-        self.pushButton_2.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-"background-color: rgb(207, 207, 207);\n"
-"color:rgb(0, 0, 0)")
+        self.pushButton_2.setMaximumSize(QtCore.QSize(800, 550))
+        self.pushButton_2.setStyleSheet("QPushButton {\n"
+"selection-background-color: rgb(162, 162, 162);\n"
+"background-color: rgb(200, 200, 200);\n"
+"color:rgb(0, 0, 0)\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"background-color:white;\n"
+"color:rgb(0, 0, 0)\n"
+"}")
         self.pushButton_2.setObjectName("pushButton_2")
         self.tableWidget = QtWidgets.QTableWidget(parent=self.frame)
         self.tableWidget.setGeometry(QtCore.QRect(175, 181, 571, 351))
+        self.tableWidget.setMaximumSize(QtCore.QSize(800, 550))
         self.tableWidget.setStyleSheet("background-color: rgb(207, 207, 207);\n"
 "color:rgb(0, 0, 0)")
         self.tableWidget.setObjectName("tableWidget")
@@ -172,6 +203,7 @@ class Ui_MainWindow(object):
         self.tableWidget.setHorizontalHeaderItem(7, item)
         self.comboBox = QtWidgets.QComboBox(parent=self.frame)
         self.comboBox.setGeometry(QtCore.QRect(180, 141, 561, 21))
+        self.comboBox.setMaximumSize(QtCore.QSize(800, 550))
         self.comboBox.setAutoFillBackground(False)
         self.comboBox.setStyleSheet("background-color: rgb(207, 207, 207);\n"
 "font: 75 8pt \"MS Shell Dlg 2\";\n"
@@ -194,11 +226,8 @@ class Ui_MainWindow(object):
         self.label_2.raise_()
         self.btn_search.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
-        self.menubar = QtWidgets.QMenuBar(parent=MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1000, 21))
-        self.menubar.setObjectName("menubar")
-        MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(parent=MainWindow)
+        self.statusbar.setMaximumSize(QtCore.QSize(800, 550))
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
 
@@ -210,6 +239,7 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.MENTORMENU.setText(_translate("MainWindow", "MENTOR MENU"))
         self.btn_search.setText(_translate("MainWindow", "Search"))
+        self.lineEdit_search.setPlaceholderText(_translate("MainWindow", "Enter the search term"))
         self.pushButton.setText(_translate("MainWindow", "All Conversations"))
         self.pushButton_2.setText(_translate("MainWindow", "Back Menu"))
         item = self.tableWidget.verticalHeaderItem(0)
