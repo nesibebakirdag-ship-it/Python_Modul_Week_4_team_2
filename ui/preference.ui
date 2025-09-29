@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>799</width>
-    <height>594</height>
+    <width>800</width>
+    <height>800</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -15,6 +15,18 @@
     <horstretch>0</horstretch>
     <verstretch>0</verstretch>
    </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>800</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>800</width>
+    <height>800</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
@@ -28,14 +40,14 @@
    </property>
    <property name="minimumSize">
     <size>
-     <width>1000</width>
-     <height>1000</height>
+     <width>800</width>
+     <height>700</height>
     </size>
    </property>
    <property name="maximumSize">
     <size>
-     <width>1000</width>
-     <height>1000</height>
+     <width>800</width>
+     <height>700</height>
     </size>
    </property>
    <widget class="QFrame" name="frame">
@@ -48,10 +60,16 @@
      </rect>
     </property>
     <property name="sizePolicy">
-     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
       <horstretch>0</horstretch>
       <verstretch>0</verstretch>
      </sizepolicy>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>800</width>
+      <height>700</height>
+     </size>
     </property>
     <property name="autoFillBackground">
      <bool>true</bool>
@@ -71,11 +89,17 @@
        <height>91</height>
       </rect>
      </property>
+     <property name="maximumSize">
+      <size>
+       <width>800</width>
+       <height>700</height>
+      </size>
+     </property>
      <property name="text">
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>logo.png</pixmap>
+      <pixmap>img/logo.png</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
@@ -89,6 +113,12 @@
        <width>571</width>
        <height>301</height>
       </rect>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>800</width>
+       <height>700</height>
+      </size>
      </property>
      <property name="autoFillBackground">
       <bool>false</bool>
@@ -110,6 +140,12 @@
         <width>141</width>
         <height>31</height>
        </rect>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>800</width>
+        <height>700</height>
+       </size>
       </property>
       <property name="font">
        <font>
@@ -138,6 +174,12 @@ color: rgb(0, 0, 0)</string>
         <height>31</height>
        </rect>
       </property>
+      <property name="maximumSize">
+       <size>
+        <width>800</width>
+        <height>700</height>
+       </size>
+      </property>
       <property name="font">
        <font>
         <family>Arial</family>
@@ -163,6 +205,12 @@ color: rgb(0, 0, 0)</string>
         <width>141</width>
         <height>31</height>
        </rect>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>800</width>
+        <height>700</height>
+       </size>
       </property>
       <property name="font">
        <font>
@@ -191,6 +239,12 @@ color: rgb(0, 0, 0)</string>
         <height>31</height>
        </rect>
       </property>
+      <property name="maximumSize">
+       <size>
+        <width>800</width>
+        <height>700</height>
+       </size>
+      </property>
       <property name="font">
        <font>
         <family>Arial</family>
@@ -218,6 +272,12 @@ color:rgb(0, 0, 0)</string>
        <height>41</height>
       </rect>
      </property>
+     <property name="maximumSize">
+      <size>
+       <width>800</width>
+       <height>700</height>
+      </size>
+     </property>
      <property name="autoFillBackground">
       <bool>false</bool>
      </property>
@@ -238,6 +298,12 @@ color:rgb(0, 0, 0)</string>
         <width>351</width>
         <height>61</height>
        </rect>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>800</width>
+        <height>700</height>
+       </size>
       </property>
       <property name="font">
        <font>
@@ -265,12 +331,25 @@ color:rgb(0, 0, 0)</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>799</width>
+     <width>800</width>
      <height>21</height>
     </rect>
    </property>
+   <property name="maximumSize">
+    <size>
+     <width>800</width>
+     <height>700</height>
+    </size>
+   </property>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QStatusBar" name="statusbar">
+   <property name="maximumSize">
+    <size>
+     <width>800</width>
+     <height>700</height>
+    </size>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>
