@@ -296,7 +296,7 @@
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>270</y>
+       <y>250</y>
        <width>111</width>
        <height>21</height>
       </rect>
@@ -362,7 +362,7 @@ color:rgb(0, 0, 0)</string>
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>360</y>
+       <y>320</y>
        <width>111</width>
        <height>21</height>
       </rect>
@@ -417,7 +417,7 @@ color:rgb(0, 0, 0)
 }</string>
      </property>
      <property name="text">
-      <string>Back Menu</string>
+      <string>Exit</string>
      </property>
     </widget>
     <widget class="QTableWidget" name="tableWidget">
@@ -594,6 +594,31 @@ color:rgb(0, 0, 0)</string>
       </property>
      </item>
     </widget>
+    <widget class="QPushButton" name="pushButton_3">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>390</y>
+       <width>111</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+selection-background-color: rgb(162, 162, 162);
+background-color: rgb(200, 200, 200);
+color:rgb(0, 0, 0)
+}
+
+QPushButton:hover {
+background-color:white;
+color:rgb(0, 0, 0)
+}</string>
+     </property>
+     <property name="text">
+      <string>Preferences</string>
+     </property>
+    </widget>
     <zorder>MENTORMENU</zorder>
     <zorder>lineEdit_search</zorder>
     <zorder>pushButton</zorder>
@@ -602,6 +627,7 @@ color:rgb(0, 0, 0)</string>
     <zorder>comboBox</zorder>
     <zorder>label_2</zorder>
     <zorder>btn_search</zorder>
+    <zorder>pushButton_3</zorder>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar">
