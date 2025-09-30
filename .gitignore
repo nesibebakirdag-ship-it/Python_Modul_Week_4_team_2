@@ -1,4 +1,3 @@
-__pycache__/
 *.pyc
 *.log
-*.json
+*.jsonAPI/config/vit8-credentials.json
