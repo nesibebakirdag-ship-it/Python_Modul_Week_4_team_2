@@ -106,7 +106,7 @@ class Ui_MainWindow(object):
         self.MENTORMENU.setIndent(0)
         self.MENTORMENU.setObjectName("MENTORMENU")
         self.btn_search = QtWidgets.QPushButton(parent=self.frame)
-        self.btn_search.setGeometry(QtCore.QRect(30, 270, 111, 21))
+        self.btn_search.setGeometry(QtCore.QRect(30, 250, 111, 21))
         self.btn_search.setMaximumSize(QtCore.QSize(800, 550))
         self.btn_search.setAcceptDrops(False)
         self.btn_search.setAutoFillBackground(False)
@@ -130,7 +130,7 @@ class Ui_MainWindow(object):
         self.lineEdit_search.setMaxLength(32800)
         self.lineEdit_search.setObjectName("lineEdit_search")
         self.pushButton = QtWidgets.QPushButton(parent=self.frame)
-        self.pushButton.setGeometry(QtCore.QRect(30, 360, 111, 21))
+        self.pushButton.setGeometry(QtCore.QRect(30, 320, 111, 21))
         self.pushButton.setMaximumSize(QtCore.QSize(800, 550))
         self.pushButton.setStyleSheet("QPushButton {\n"
 "selection-background-color: rgb(162, 162, 162);\n"
@@ -217,6 +217,19 @@ class Ui_MainWindow(object):
         self.comboBox.addItem("")
         self.comboBox.addItem("")
         self.comboBox.addItem("")
+        self.pushButton_3 = QtWidgets.QPushButton(parent=self.frame)
+        self.pushButton_3.setGeometry(QtCore.QRect(30, 390, 111, 23))
+        self.pushButton_3.setStyleSheet("QPushButton {\n"
+"selection-background-color: rgb(162, 162, 162);\n"
+"background-color: rgb(200, 200, 200);\n"
+"color:rgb(0, 0, 0)\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"background-color:white;\n"
+"color:rgb(0, 0, 0)\n"
+"}")
+        self.pushButton_3.setObjectName("pushButton_3")
         self.MENTORMENU.raise_()
         self.lineEdit_search.raise_()
         self.pushButton.raise_()
@@ -225,6 +238,7 @@ class Ui_MainWindow(object):
         self.comboBox.raise_()
         self.label_2.raise_()
         self.btn_search.raise_()
+        self.pushButton_3.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(parent=MainWindow)
         self.statusbar.setMaximumSize(QtCore.QSize(800, 550))
@@ -241,7 +255,7 @@ class Ui_MainWindow(object):
         self.btn_search.setText(_translate("MainWindow", "Search"))
         self.lineEdit_search.setPlaceholderText(_translate("MainWindow", "Enter the search term"))
         self.pushButton.setText(_translate("MainWindow", "All Conversations"))
-        self.pushButton_2.setText(_translate("MainWindow", "Back Menu"))
+        self.pushButton_2.setText(_translate("MainWindow", "Exit"))
         item = self.tableWidget.verticalHeaderItem(0)
         item.setText(_translate("MainWindow", "1"))
         item = self.tableWidget.verticalHeaderItem(1)
@@ -286,6 +300,7 @@ class Ui_MainWindow(object):
         self.comboBox.setItemText(5, _translate("MainWindow", "Bir Sonraki VIT Projesine Katılması Daha Uygun Olur"))
         self.comboBox.setItemText(6, _translate("MainWindow", "Başka Bir Sektöre Yönlendirilmeli"))
         self.comboBox.setItemText(7, _translate("MainWindow", "Diğer"))
+        self.pushButton_3.setText(_translate("MainWindow", "Preferences"))
 
 
 if __name__ == "__main__":
