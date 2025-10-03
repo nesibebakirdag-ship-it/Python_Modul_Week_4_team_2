@@ -156,7 +156,7 @@
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>img/logo.png</pixmap>
+      <pixmap>../img/logo.png</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
@@ -435,6 +435,9 @@ color:rgb(0, 0, 0)
        <height>550</height>
       </size>
      </property>
+     <property name="autoFillBackground">
+      <bool>true</bool>
+     </property>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(207, 207, 207);
 color:rgb(0, 0, 0)</string>
@@ -496,6 +499,11 @@ color:rgb(0, 0, 0)</string>
      </column>
      <column>
       <property name="text">
+       <string>VIT Class</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
        <string>Mentee's Name-Surname</string>
       </property>
      </column>
@@ -506,22 +514,22 @@ color:rgb(0, 0, 0)</string>
      </column>
      <column>
       <property name="text">
-       <string>Informations</string>
+       <string>Number</string>
       </property>
      </column>
      <column>
       <property name="text">
-       <string>Leading</string>
+       <string>Result</string>
       </property>
      </column>
      <column>
       <property name="text">
-       <string>Idea</string>
+       <string>Result2</string>
       </property>
      </column>
      <column>
       <property name="text">
-       <string>Intensity</string>
+       <string>Number2</string>
       </property>
      </column>
      <column>
