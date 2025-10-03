@@ -43,7 +43,7 @@ class MyApp(QtWidgets.QMainWindow):
         self.resize(800, 600)
 
         # Başvurular verisi
-        self.df = read_sheet(os.getenv("SPREADSHEET_ID"))
+        self.df = read_sheet(os.getenv("APP_SPREADSHEET_ID"))
         self.df.columns = [c.strip() for c in self.df.columns]
         self.filtered_df = self.df.copy()
         self.load_table_data(self.df)
@@ -92,7 +92,7 @@ class MyApp(QtWidgets.QMainWindow):
         self.load_table_data(self.filtered_df)
 
     def show_all_records(self):
-        self.df = read_sheet(os.getenv("SPREADSHEET_ID"))
+        self.df = read_sheet(os.getenv("APP_SPREADSHEET_ID"))
         self.df.columns = [c.strip() for c in self.df.columns]
         if self.df.empty:
             QtWidgets.QMessageBox.warning(self, "Warning", "Google Sheet data could not be loaded.")
