@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(250, 243, 224); /* krem */
+color: rgb(0, 0, 0);</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="all_application_button">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>70</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+background-color:#1B5E20;
+border-radius:10px;
+font-weight:bold;
+}
+
+QPushButton:hover {
+	color:white;
+background-color:rgb(67,78,86)
+}</string>
+    </property>
+    <property name="text">
+     <string>📋 All Aplications</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="search_edit">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>70</y>
+      <width>251</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit {
+    border-radius: 10px;
+    background: none;
+    padding: 5px;
+    color: white;           /* Yazı rengi beyaz */
+    font-size: 16px;        /* Yazıyı büyük yapar */
+    font-weight: bold;      /* Yazıyı kalın yapar */
+}</string>
+    </property>
+    <property name="placeholderText">
+     <string>Enter the search term...</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="search_button">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>70</y>
+      <width>161</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+color:white;
+background:#db1e3c;
+border-radius:10px;
+font-weight:bold;
+}
+
+QPushButton::hover{
+color:#db1e3c;
+background:white;
+border-radius:10px;
+font-weight:bold;
+}</string>
+    </property>
+    <property name="text">
+     <string>🔍 Search</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="exit_button">
+    <property name="geometry">
+     <rect>
+      <x>620</x>
+      <y>70</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    color: white;
+    background: #47545a;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+QPushButton::hover {
+    color: white;
+    background: red;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 13px;
+}
+</string>
+    </property>
+    <property name="text">
+     <string>⏻ Exit </string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="assigned_mentor_interviews_button">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>110</y>
+      <width>251</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	background-color:#880E4F;
+border-radius:10px;
+font-weight:bold;
+}
+
+QPushButton:hover {
+	color:white;
+background-color:rgb(67,78,86)
+}</string>
+    </property>
+    <property name="text">
+     <string>📅 Assigned Mentor Interviews</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="unassigned_mentor_interviews_button">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>150</y>
+      <width>251</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	background-color:#880E4F;
+border-radius:10px;
+font-weight:bold;
+}
+
+QPushButton:hover {
+	color:white;
+background-color:rgb(67,78,86)
+}</string>
+    </property>
+    <property name="text">
+     <string>🗂️ Unassigned Mentor Interviews</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="prev_vit_check_button">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>110</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	background-color:#880E4F;
+border-radius:10px;
+font-weight:bold;
+}
+
+QPushButton:hover {
+	color:white;
+background-color:rgb(67,78,86)
+}</string>
+    </property>
+    <property name="text">
+     <string>✅ Prev VIT Check</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="fltered_applications_button">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>150</y>
+      <width>161</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	background-color:#880E4F;
+border-radius:10px;
+font-weight:bold;
+}
+
+QPushButton:hover {
+	color:white;
+background-color:rgb(67,78,86)
+}</string>
+    </property>
+    <property name="text">
+     <string>🎚️ Filtered Applications</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="dublicate_application_button">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>110</y>
+      <width>161</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	background-color:#880E4F;
+border-radius:10px;
+font-weight:bold;
+}
+
+QPushButton:hover {
+	color:white;
+background-color:rgb(67,78,86)
+}</string>
+    </property>
+    <property name="text">
+     <string>🔁 Duplicate Application</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="differen_registration_button">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>150</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	background-color:#880E4F;
+border-radius:10px;
+font-weight:bold;
+}
+
+QPushButton:hover {
+	color:white;
+background-color:rgb(67,78,86)
+}</string>
+    </property>
+    <property name="text">
+     <string>📝 Different Registration</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="main_menu_button">
+    <property name="geometry">
+     <rect>
+      <x>620</x>
+      <y>110</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	background-color:#4A148C;
+border-radius:10px;
+font-weight:bold;
+}
+
+QPushButton:hover {
+	color:white;
+background-color:rgb(67,78,86)
+}</string>
+    </property>
+    <property name="text">
+     <string>🏠 Main Menu</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="logo_label">
+    <property name="geometry">
+     <rect>
+      <x>570</x>
+      <y>10</y>
+      <width>221</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../img/lg.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+    </property>
+    <property name="margin">
+     <number>0</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>331</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel {
+    background-color: #47545a;   /* siyah arka plan */
+    color: #ffffff;              /* beyaz yazı */
+    font-size: 28px;             /* yazı boyutu */
+    font-weight: bold;           /* kalın yazı */
+    font-family: Arial;          /* yazı tipi */
+    padding: 10px 20px;          /* iç boşluk */
+    border-radius: 6px;          /* köşe yuvarlama */
+}
+</string>
+    </property>
+    <property name="text">
+     <string>APPLICATION PAGE:</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="preferences_button">
+    <property name="geometry">
+     <rect>
+      <x>620</x>
+      <y>150</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	background-color:#4A148C;
+border-radius:10px;
+font-weight:bold;
+}
+
+QPushButton:hover {
+	color:white;
+background-color:rgb(67,78,86)
+}</string>
+    </property>
+    <property name="text">
+     <string>⬅ Preferences</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="print_buttton">
+    <property name="geometry">
+     <rect>
+      <x>710</x>
+      <y>70</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    color: white;
+    background: #47545a;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+QPushButton::hover {
+    color: white;
+    background: red;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 13px;
+}
+</string>
+    </property>
+    <property name="text">
+     <string>🖨️ Print</string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>190</y>
+      <width>801</width>
+      <height>421</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(200, 200, 200); /* gri arka plan */
+color: rgb(0, 0, 0);                  /* siyah yazı */
+border: 2px solid rgb(255, 0, 0);     /* kırmızı, 2px kalınlığında kenarlık */
+border-radius: 5px;                   /* köşeleri hafif yuvarlatmak istersen */</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QTableWidget" name="tableWidget">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>781</width>
+       <height>391</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
