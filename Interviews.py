@@ -1,10 +1,15 @@
-from PyQt6 import QtCore, QtGui, QtWidgets
+from PyQt6 import QtCore, QtGui, QtWidgets,uic
 from PyQt6.QtWidgets import QTableWidgetItem
 import requests
 import sys
 
 
-class Ui_MainWindow(object):
+class Interviews(QtWidgets.QMainWindow):
+    def __init__(self):
+        super().__init__()
+        uic.loadUi("ui/interviews.ui", self)
+        self.send_request()
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
@@ -143,7 +148,7 @@ class Ui_MainWindow(object):
                         self.tableWidget.setItem(row, col, QTableWidgetItem(str(value)))
 
     def send_request(self):
-        url = "http://127.0.0.1:8000/interviews"
+        url = "http://127.0.0.1:8002/interviews"
         try:
             resp = requests.get(url, timeout=8)
             data = resp.json()
@@ -167,8 +172,7 @@ class Ui_MainWindow(object):
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
+    window = Interviews()
+    window.show()
     sys.exit(app.exec())
+

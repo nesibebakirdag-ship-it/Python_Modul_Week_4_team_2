@@ -4,7 +4,7 @@ from PyQt6.QtCore import Qt, pyqtSignal
 import threading
 import requests
 from ErrorTypeEnum import  ErrorType, ERROR_MAP, ERROR_TEXT
-
+from preference import PreferenceWindow
 
 class Ui_MainWindow(QtWidgets.QMainWindow):
     login_finished = pyqtSignal(object,str)
@@ -85,7 +85,7 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         threading.Thread(target=self.send_request, args=(username, password), daemon=True).start()
 
     def send_request(self, username, password):
-        url = "http://127.0.0.1:8000/login"
+        url = "http://127.0.0.1:8001/login"
         try:
             data = None
             resp = requests.post(url, json={"username": username, "password": password}, timeout=8)
@@ -111,11 +111,14 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         self.pushButton.setText("Login")
     
         if data is not None:
-            QtWidgets.QMessageBox.information(self, "Succes" , "Succes login: "+ data["kullanici"])
-
-            self.label_3.hide()  # Başarılı ise hata mesajını gizle
+           self.open_menu(data["role"])
+           self.label_3.hide()  # Başarılı ise hata mesajını gizle
         else:
             error_type = ERROR_MAP.get(error, ErrorType.OTHER)
             self.error_login(error_type)
 
+    def open_menu(self,role):
+        self.menu_window = PreferenceWindow(role)
+        self.menu_window.show()
+        self.close()
 

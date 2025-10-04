@@ -36,7 +36,7 @@ def read_sheet(sheet_id, range_name=os.getenv("RANGE_NAME")):
     return pd.DataFrame(data, columns=headers)
 
 # -------------------- PyQt6 Uygulaması --------------------
-class MyApp(QtWidgets.QMainWindow):
+class Applications(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
         uic.loadUi(r".\ui\application_page.ui", self)
@@ -263,6 +263,6 @@ class MyApp(QtWidgets.QMainWindow):
 # ----------------- Uygulama Başlat -----------------
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
-    window = MyApp()
+    window = Applications()
     window.show()
     sys.exit(app.exec())

@@ -4,7 +4,7 @@ import requests
 
 
 # 🧭 PyQt6 Arayüzü
-class MyApp(QtWidgets.QMainWindow):
+class Mentor(QtWidgets.QMainWindow):
     
     def __init__(self,):
         super().__init__()
@@ -136,7 +136,7 @@ class MyApp(QtWidgets.QMainWindow):
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
-    window = MyApp()
+    window = Mentor()
     window.show()
     sys.exit(app.exec())
 

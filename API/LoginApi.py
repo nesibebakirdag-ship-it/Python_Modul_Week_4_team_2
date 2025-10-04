@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi import HTTPException
-from .models.LoginModel import LoginModel
-from .config.config import sheet
+from models.LoginModel import LoginModel
+from config.config import LoginSheet
 
 app = FastAPI()
 
@@ -9,10 +9,10 @@ app = FastAPI()
 
 @app.post("/login")
 async def login(data: LoginModel):
-    records =  sheet.get_all_records()
+    records =  LoginSheet.get_all_records()
     for record in records:
-        if data.username == record['kullanici']:
-            if data.password == record['parola']:
+        if data.username == record['username']:
+            if data.password == record['password']:
                 return record
             else:
                 raise HTTPException(status_code=401, detail="Invalid password")
@@ -22,5 +22,5 @@ async def login(data: LoginModel):
 
 @app.get("/getalluser")
 def getuser():
-    record = sheet.get_all_records()
+    record = LoginSheet.get_all_records()
     return record

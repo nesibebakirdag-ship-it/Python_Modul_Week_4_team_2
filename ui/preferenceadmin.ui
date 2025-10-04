@@ -114,7 +114,7 @@
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="applications">
       <property name="geometry">
        <rect>
         <x>90</x>
@@ -147,7 +147,7 @@ color: rgb(0, 0, 0)</string>
        <string>Applications</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_2">
+     <widget class="QPushButton" name="interviews">
       <property name="geometry">
        <rect>
         <x>90</x>
@@ -179,7 +179,7 @@ color: rgb(0, 0, 0)</string>
        <string>Interviews</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_3">
+     <widget class="QPushButton" name="mentor_meet">
       <property name="geometry">
        <rect>
         <x>350</x>
@@ -212,7 +212,7 @@ color: rgb(0, 0, 0)</string>
        <string>Mentor Meeting</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_4">
+     <widget class="QPushButton" name="exit">
       <property name="geometry">
        <rect>
         <x>350</x>
@@ -244,7 +244,7 @@ color:rgb(0, 0, 0)</string>
        <string>Exit</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_5">
+     <widget class="QPushButton" name="main_menu">
       <property name="geometry">
        <rect>
         <x>350</x>
@@ -270,7 +270,7 @@ color:rgb(0, 0, 0)</string>
        <string>Main Menu</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_6">
+     <widget class="QPushButton" name="admin_menu">
       <property name="geometry">
        <rect>
         <x>90</x>

@@ -32,7 +32,7 @@ def read_google_sheet():
         return pd.DataFrame(values[1:], columns=values[0])  # ilk satır başlık
 
 # 🧭 PyQt6 Arayüzü
-class MyApp(QtWidgets.QMainWindow):
+class Admin(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
         uic.loadUi(r".\ui\admin.ui", self)  # senin UI dosyanın adı
@@ -60,7 +60,7 @@ class MyApp(QtWidgets.QMainWindow):
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
-    window = MyApp()
+    window = Admin()
     window.show()
     sys.exit(app.exec())
 
