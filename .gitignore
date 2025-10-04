@@ -1,4 +1,11 @@
-.env
-credentials.json
 eskicredentials.json
 token.json
+
+.env
+credentials.json
+*.pyc
+*.log
+API/config/vit8-credentials.json
+.env
+
+
