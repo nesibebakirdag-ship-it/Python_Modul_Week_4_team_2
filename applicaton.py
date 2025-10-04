@@ -7,6 +7,8 @@ from PyQt6.QtPrintSupport import QPrinter, QPrintDialog
 from PyQt6.QtGui import QTextDocument
 from dotenv import load_dotenv
 import os
+from base_window import BaseWindow
+
 
 load_dotenv()
 # -------------------- Google Sheets Okuma --------------------
@@ -36,11 +38,13 @@ def read_sheet(sheet_id, range_name=os.getenv("RANGE_NAME")):
     return pd.DataFrame(data, columns=headers)
 
 # -------------------- PyQt6 Uygulaması --------------------
-class Applications(QtWidgets.QMainWindow):
+class Applications(BaseWindow):
     def __init__(self):
         super().__init__()
         uic.loadUi(r".\ui\application_page.ui", self)
         self.resize(800, 600)
+        self.vit1 = read_sheet(os.getenv("VIT1_SPREADSHEET_ID"))
+        self.vit2 = read_sheet(os.getenv("VIT2_SPREADSHEET_ID"))
 
         # Başvurular verisi
         self.df = read_sheet(os.getenv("APP_SPREADSHEET_ID"))
@@ -92,7 +96,6 @@ class Applications(QtWidgets.QMainWindow):
         self.load_table_data(self.filtered_df)
 
     def show_all_records(self):
-        self.df = read_sheet(os.getenv("APP_SPREADSHEET_ID"))
         self.df.columns = [c.strip() for c in self.df.columns]
         if self.df.empty:
             QtWidgets.QMessageBox.warning(self, "Warning", "Google Sheet data could not be loaded.")
@@ -152,8 +155,8 @@ class Applications(QtWidgets.QMainWindow):
         basvuru_col = basvuru_col_candidates[0]
 
         vit3_df = self.df[self.df[basvuru_col].str.strip() == "VIT3"]
-        vit1_df = read_sheet(os.getenv("VIT1_SPREADSHEET_ID"))
-        vit2_df = read_sheet(os.getenv("VIT2_SPREADSHEET_ID"))
+        vit1_df = self.vit1
+        vit2_df = self.vit2
 
         for df in [vit1_df, vit2_df]:
             if name_col not in df.columns or email_col not in df.columns:
@@ -181,8 +184,8 @@ class Applications(QtWidgets.QMainWindow):
         basvuru_col = basvuru_col_candidates[0]
 
         vit3_df = self.df[self.df[basvuru_col].str.strip() == "VIT3"]
-        vit1_df = read_sheet(os.getenv("VIT1_SPREADSHEET_ID"))
-        vit2_df = read_sheet(os.getenv("VIT2_SPREADSHEET_ID"))
+        vit1_df = self.vit1
+        vit2_df = self.vit2
 
         merged_vit = pd.concat([vit1_df, vit2_df], ignore_index=True).drop_duplicates(subset=[name_col, email_col])
         unique_candidates = pd.merge(vit3_df, merged_vit, on=[name_col, email_col], how='left', indicator=True)
@@ -194,48 +197,7 @@ class Applications(QtWidgets.QMainWindow):
             self.load_table_data(unique_candidates)
             self.current_filter_title = "Farklı Kayıt"
 
-    # ----------------- Çıkış ve Navigasyon -----------------
-    def confirm_exit(self):
-        reply = QtWidgets.QMessageBox.question(
-            self,
-            "Exit Confirmation",
-            "Are you sure you want to exit?",
-            QtWidgets.QMessageBox.StandardButton.Yes | QtWidgets.QMessageBox.StandardButton.No
-        )
-        if reply == QtWidgets.QMessageBox.StandardButton.Yes:
-            QtWidgets.QApplication.quit()
-
-    def go_to_preferences(self):
-        reply = QtWidgets.QMessageBox.question(
-            self,
-            "Confirmation",
-            "Do you want to go to Preferences page?",
-            QtWidgets.QMessageBox.StandardButton.Yes | QtWidgets.QMessageBox.StandardButton.No
-        )
-        if reply == QtWidgets.QMessageBox.StandardButton.Yes:
-            try:
-                self.pref_window = QtWidgets.QMainWindow()
-                uic.loadUi(r".\ui\preferences.ui", self.pref_window)
-                self.pref_window.show()
-                self.close()
-            except Exception as e:
-                QtWidgets.QMessageBox.warning(self, "Error", f"Could not load Preferences screen!\n{str(e)}")
-
-    def go_to_main_menu(self):
-        reply = QtWidgets.QMessageBox.question(
-            self,
-            "Confirmation",
-            "Do you want to go to the Main Menu?",
-            QtWidgets.QMessageBox.StandardButton.Yes | QtWidgets.QMessageBox.StandardButton.No
-        )
-        if reply == QtWidgets.QMessageBox.StandardButton.Yes:
-            try:
-                self.main_window = QtWidgets.QMainWindow()
-                uic.loadUi(r".\ui\main_page.ui", self.main_window)
-                self.main_window.show()
-                self.close()
-            except Exception as e:
-                QtWidgets.QMessageBox.warning(self, "Error", f"Could not load Main Menu screen!\n{str(e)}")
+   
 
     # ----------------- Yazdırma -----------------
     def print_table(self, title=""):

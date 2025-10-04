@@ -3,16 +3,20 @@ from admin import Admin
 from applicaton import Applications
 from mentor import Mentor
 from Interviews import Interviews
+from session import Session
+from base_window import BaseWindow
 
 
-class PreferenceWindow(QtWidgets.QMainWindow):
-    def __init__(self, role):
+class PreferenceWindow(BaseWindow):
+    def __init__(self):
         super().__init__()
         # UI dosyasını yükle
         uic.loadUi("ui/preferenceadmin.ui", self)
         
+        session = Session()
+
         # Role bazlı admin buton görünürlüğü
-        if role == "admin":
+        if session.role == "admin":
             self.admin_menu.show()
         else:
             self.admin_menu.hide()
@@ -36,20 +40,13 @@ class PreferenceWindow(QtWidgets.QMainWindow):
         self.open_menu(Mentor)
 
     def btn_exit(self):
-        QtWidgets.QApplication.instance().quit()
+        self.confirm_exit()
 
     def btn_main(self):
-        # Örnek: main menü açmak istiyorsan burayı düzenle
-        QtWidgets.QMessageBox.information(self, "Info", "Main menu clicked!")
+       self.open_menu(PreferenceWindow)
 
     def btn_admin(self):
         self.open_menu(Admin)
-
-    # Genel menü açma metodu
-    def open_menu(self, page_class):
-        self.menu_window = page_class()
-        self.menu_window.show()
-        self.close()
 
 
 # Test için çalıştırılabilir

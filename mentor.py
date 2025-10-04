@@ -1,10 +1,11 @@
 import sys
 from PyQt6 import QtWidgets, uic
 import requests
+from base_window import BaseWindow
 
 
 # 🧭 PyQt6 Arayüzü
-class Mentor(QtWidgets.QMainWindow):
+class Mentor(BaseWindow):
     
     def __init__(self,):
         super().__init__()
@@ -16,14 +17,12 @@ class Mentor(QtWidgets.QMainWindow):
 
         self.btn_search.clicked.connect(self.search_records)
         self.pushButton.clicked.connect(self.show_all_records)   # Tüm görüşmeler butonu
+        self.pushButton_3.clicked.connect(self.go_to_preferences)
 
          # ComboBox seçim değiştiğinde filtre uygula
         self.comboBox.currentIndexChanged.connect(self.filter_by_combobox)
 
-        self.pushButton_2.clicked.connect(self.close)  # Kapat butonu
-    
-    def close(self):
-        QtWidgets.QApplication.instance().quit() 
+        self.pushButton_2.clicked.connect(self.confirm_exit)  # Kapat butonu
 
     def send_request(self):
         url = "http://127.0.0.1:8000/getAllMentor"

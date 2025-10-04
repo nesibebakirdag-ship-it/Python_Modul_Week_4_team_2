@@ -5,8 +5,11 @@ import threading
 import requests
 from ErrorTypeEnum import  ErrorType, ERROR_MAP, ERROR_TEXT
 from preference import PreferenceWindow
+from base_window import BaseWindow
+from session import Session
 
-class Ui_MainWindow(QtWidgets.QMainWindow):
+
+class Ui_MainWindow(BaseWindow):
     login_finished = pyqtSignal(object,str)
 
     def __init__(self):
@@ -111,14 +114,14 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         self.pushButton.setText("Login")
     
         if data is not None:
-           self.open_menu(data["role"])
+           # usage
+           session = Session()
+           print(data)
+           session.role = data["role"]
+           self.open_menu(PreferenceWindow)
            self.label_3.hide()  # Başarılı ise hata mesajını gizle
         else:
             error_type = ERROR_MAP.get(error, ErrorType.OTHER)
             self.error_login(error_type)
 
-    def open_menu(self,role):
-        self.menu_window = PreferenceWindow(role)
-        self.menu_window.show()
-        self.close()
 

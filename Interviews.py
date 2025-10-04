@@ -2,12 +2,13 @@ from PyQt6 import QtCore, QtGui, QtWidgets,uic
 from PyQt6.QtWidgets import QTableWidgetItem
 import requests
 import sys
+from base_window import BaseWindow
 
 
-class Interviews(QtWidgets.QMainWindow):
+class Interviews(BaseWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi("ui/interviews.ui", self)
+        self.setupUi(self)
         self.send_request()
 
     def setupUi(self, MainWindow):
@@ -77,6 +78,7 @@ class Interviews(QtWidgets.QMainWindow):
         self.pushButton_3.setGeometry(QtCore.QRect(50, 490, 111, 23))
         self.pushButton_3.setText("Back Menu")
         self.pushButton_3.setObjectName("pushButton_3")
+        self.pushButton_3.clicked.connect(self.go_to_main_menu)
         
 
         # Table

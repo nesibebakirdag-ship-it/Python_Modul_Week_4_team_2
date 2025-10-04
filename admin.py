@@ -22,7 +22,7 @@ def read_google_sheet():
     service = get_service()
     result = service.spreadsheets().values().get(
         spreadsheetId=os.getenv("SPREADSHEET_ID"),
-        range=os.getenv("FSHEET_NAME")
+        range=os.getenv("RANGE_NAME")
     ).execute()
 
     values = result.get('values', [])
