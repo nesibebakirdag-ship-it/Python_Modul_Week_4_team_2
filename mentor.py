@@ -1,41 +1,6 @@
 import sys
-import pandas as pd
-from PyQt6 import QtWidgets, uic, QtCore
-from google.oauth2.service_account import Credentials
-from googleapiclient.discovery import build
-import gspread
-from dotenv import load_dotenv
-import os
-
-load_dotenv()
-
-# 🧠 Google Sheets API Servisini oluştur
-def get_service():
-    scopes = ['https://www.googleapis.com/auth/spreadsheets']
-    creds = Credentials.from_service_account_file(os.getenv("CREDENTIALS_FILE"), scopes=scopes)
-    service = build('sheets', 'v4', credentials=creds)
-    return service
-
-# 📥 Google Sheets'ten veriyi DataFrame olarak çek
-def read_google_sheet():
-    #client = gspread.service_account(filename=CREDENTIALS_FILE)
-    #working = client.open("Mentor")
-    #sayfabir = working.get_worksheet(0)
-    #print(sayfabir.get_all_records())
-
-
-    service = get_service()
-    result = service.spreadsheets().values().get(
-        spreadsheetId=os.getenv("SPREADSHEET_ID"),
-        range=os.getenv("RANGE_NAME"),
-    ).execute()
-
-    values = result.get('values', [])
-    if not values:
-        return pd.DataFrame()
-    else:
-        return pd.DataFrame(values[1:], columns=values[0])  # ilk satır başlık
-
+from PyQt6 import QtWidgets, uic
+import requests
 
 
 # 🧭 PyQt6 Arayüzü
@@ -59,99 +24,112 @@ class MyApp(QtWidgets.QMainWindow):
     
     def close(self):
         QtWidgets.QApplication.instance().quit() 
-    
+
+    def send_request(self):
+        url = "http://127.0.0.1:8000/getAllMentor"
+        try:
+            data = None
+            resp = requests.get(url, timeout=8)
+            data = resp.json()
+
+            if resp.status_code == 200:
+                return data
+            else:
+                print("Error:")
+
+        except Exception as e:
+                print("Error:")
+
+
 
     def load_table_data(self):
-        df = read_google_sheet()
-        if df.empty:
+        
+        data =  self.send_request()
+      
+        if not data:
             QtWidgets.QMessageBox.warning(self, "Uyarı", "Google Sheet'ten veri alınamadı.")
             return
+        self.df_all = data
+        # satır ve sütun sayısı
+        self.tableWidget.setRowCount(len(data))
+        self.tableWidget.setColumnCount(len(data[0]))  # ilk elemandaki anahtar sayısı
 
-        self.tableWidget.setRowCount(len(df))
-        self.tableWidget.setColumnCount(len(df.columns))
+        # Başlıklar
+        self.tableWidget.setHorizontalHeaderLabels(list(data[0].keys()))
 
-
-        #self.tableWidget.setHorizontalHeaderLabels([str(col) for col in df.columns])
-        #bu satir yuzunden df ilk satirini baslik olarak aliyor
-
-        for row in range(len(df)):
-            for col in range(len(df.columns)):
-                val = str(df.iat[row, col]) if df.iat[row, col] is not None else ""
+        # Tablonun doldurulması
+        for row, row_data in enumerate(data):
+            for col, key in enumerate(row_data):
+                val = str(row_data[key]) if row_data[key] is not None else ""
                 self.tableWidget.setItem(row, col, QtWidgets.QTableWidgetItem(val))
-        self.df_all = df  # tüm veriyi sakla
+
         self.tableWidget.resizeColumnsToContents()
 
-  # ComboBox'u doldur (6. sütun = index 5)
+        # ComboBox doldurma (6. sütun = index 5)
         self.comboBox.clear()
-        unique_values = sorted(df.iloc[:, 5].dropna().unique())  
+        unique_values = sorted({row[list(row.keys())[5]] for row in data if row[list(row.keys())[5]] is not None})
         self.comboBox.addItems(unique_values)
-
-
 
     def show_all_records(self):
         self.update_table(self.df_all)
    
-
     def search_records(self):
-        #amac: eski kodda arama yaptigimizda liste guncelleniyordu ve guncellenen listesede sadece arama yaptigimiz isimler oluyordu ondan sonra baska ismi aradigimizda bulamiyorduk
-        #guncelleme: isim aramayi her zaman ilk basta olusturdugumuz listeden yaptik.
-        #bulunan liste: bulunan isimleri yeni bir listeye ekledik ve o listeyi tabloya aktardik
-        #bunu yaparken de update_table adinda yeni bir fonksiyon olusturduk
-        #yani kısaca arama yaparken hep orjinal listeyi kullanıyoruz ve bulunanları yeni listeye ekleyip tabloya aktarıyoruz
-        #böylece arama yaptıktan sonra başka bir isim aradığımızda da bulabiliyoruz
-       
-        
-        #  findData icerisinde arama sonucu bulunan veriler olacak
+        """
+        Arama yaparken:
+        - Her zaman orijinal veri listesi (self.df_all) kullanılır.
+        - Bulunan sonuçlar yeni bir listeye eklenir.
+        - update_table() ile tabloya aktarılır.
+        """
+
+        # Arama sonucu bulunan veriler
         findData = []
-        
-        #kac tane satir var listede. bunun nedenide for dongusu ile her satiri tek tek kontrol edebilmek icin
-        row_count = len(self.df_all)  # satır sayısı
 
         # Arama metni
         search_text = self.lineEdit_search.text().lower()  # küçük harf ile arama
 
-        for row in range(row_count):
-            # 2. sütundaki değeri al (0 tabanlı indeksleme)
-            val = str(self.df_all.iat[row, 2])  # 2. sütun
-            # küçük harf ile karşılaştırma
-            #arama metni val içinde geçiyorsa gir
+        for row_data in self.df_all:  # self.df_all artık JSON listesi
+            # 3. sütundaki değer (0 tabanlı indeks: 2)
+            keys = list(row_data.keys())
+            val = str(row_data[keys[2]]) if keys[2] in row_data else ""
+
             if search_text in val.lower():  # kısmi eşleşme
-                # Eşleşen satırı tablo içinde seç
-                self.tableWidget.selectRow(row)
-
                 # Bulunan satırı findData listesine ekle
-                findData.append([str(self.df_all.iat[row, col]) for col in range(self.df_all.shape[1])])
-                print("Bulundu:", val)
+                findData.append(row_data)
 
-        # findData liste olduğu için DataFrame'e çevirip update_table ile tabloya aktar
-        self.update_table(pd.DataFrame(findData))
-
-    
+        # findData artık JSON listesi, update_table fonksiyonunu JSON ile uyumlu hale getirmek gerekir
+        self.update_table(findData)
     def update_table(self,findData):
-        # Tabloyu ilk baasta temizle ve yeni veriyi ekle
-        #temizleme
-        self.tableWidget.setRowCount(0)  # Tabloyu temizle
-        #yeni veriyi ekleme
-        self.tableWidget.setRowCount(len(findData))  # Yeni satır sayısını ayarla
-        
-        for row in range(len(findData)):
-            for col in range(len(findData.columns)):
-                val = str(findData.iat[row, col]) if findData.iat[row, col] is not None else ""
-                self.tableWidget.setItem(row, col, QtWidgets.QTableWidgetItem(val))
+            # Tabloyu ilk baasta temizle ve yeni veriyi ekle
+            #temizleme
+            self.tableWidget.setRowCount(0)  # Tabloyu temizle
+            #yeni veriyi ekleme
+            self.tableWidget.setRowCount(len(findData))  # Yeni satır sayısını ayarla
+            
+            for row, row_data in enumerate(findData):
+                for col, key in enumerate(row_data):
+                    val = str(row_data[key]) if row_data[key] is not None else ""
+                    self.tableWidget.setItem(row, col, QtWidgets.QTableWidgetItem(val))
 
-        # Sütun genişliklerini içeriğe göre ayarla
-        self.tableWidget.resizeColumnsToContents()
+            # Sütun genişliklerini içeriğe göre ayarla
+            self.tableWidget.resizeColumnsToContents()
 
     def filter_by_combobox(self):
-        selected_value = self.comboBox.currentText()
+            selected_value = self.comboBox.currentText()
 
-        if not selected_value:
-            self.update_table(self.df_all)
-            return
+            if not selected_value:
+                self.update_table(self.df_all)
+                return
 
-        # 5. sütuna göre filtre uygula
-        filtered_df = self.df_all[self.df_all.iloc[:, 5] == selected_value]
-        self.update_table(filtered_df)
+            # 5. sütuna göre filtre uygula
+            # 6. sütun = index 5
+            keys = list(self.df_all[0].keys())  # tüm satırlar aynı yapıda varsayılır
+            column_key = keys[5]  # filtrelenecek sütun adı
+
+            # Filtreleme
+            filtered_data = [row for row in self.df_all if row.get(column_key) == selected_value]
+
+            # Tabloyu güncelle
+            self.update_table(filtered_data)
 
 
 
