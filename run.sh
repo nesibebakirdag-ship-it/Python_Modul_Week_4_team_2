@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 # 1️⃣ Proje root klasörüne git
 cd "$(dirname "$0")/API" || exit
 
@@ -12,6 +13,6 @@ start "" python -m uvicorn API.LoginApi:app --reload
 sleep 3
 
 # 4️⃣ PyQt GUI scriptini çalıştır
-# main.py dosyasının yolunu kendi projene göre düzenle
+
 echo "Starting PyQt application..."
 python main.py
