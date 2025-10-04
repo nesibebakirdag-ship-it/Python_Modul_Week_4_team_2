@@ -2,12 +2,13 @@ from PyQt6 import QtCore, QtGui, QtWidgets,uic
 from PyQt6.QtWidgets import QTableWidgetItem
 import requests
 import sys
-from base_window import BaseWindow
+from .base_window import BaseWindow
 
 
 class Interviews(BaseWindow):
     def __init__(self):
         super().__init__()
+
         self.setupUi(self)
         self.send_request()
 

@@ -3,10 +3,10 @@ from PyQt6.QtGui import QPixmap
 from PyQt6.QtCore import Qt, pyqtSignal
 import threading
 import requests
-from ErrorTypeEnum import  ErrorType, ERROR_MAP, ERROR_TEXT
-from preference import PreferenceWindow
-from base_window import BaseWindow
-from session import Session
+from enums.ErrorTypeEnum import  ErrorType, ERROR_MAP, ERROR_TEXT
+from .preference import PreferenceWindow
+from .base_window import BaseWindow
+from .utils.session import Session
 
 
 class Ui_MainWindow(BaseWindow):
@@ -31,7 +31,7 @@ class Ui_MainWindow(BaseWindow):
         self.label_5 = QtWidgets.QLabel()
         self.label_5.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.label_5.setFixedSize(120, 120)
-        pixmap = QPixmap("./img/logo.png")
+        pixmap = QPixmap("../img/logo.png")
         pixmap = pixmap.scaled(self.label_5.size(), Qt.AspectRatioMode.KeepAspectRatio,
                                Qt.TransformationMode.SmoothTransformation)
         self.label_5.setPixmap(pixmap)

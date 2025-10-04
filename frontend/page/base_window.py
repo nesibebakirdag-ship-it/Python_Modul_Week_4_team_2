@@ -1,6 +1,14 @@
 from PyQt6 import QtWidgets, uic
+import os
 
 class BaseWindow(QtWidgets.QMainWindow):
+
+    def findLocation(self,name):
+        current_dir = os.path.dirname(__file__)      # page klasörü
+        ui_path = os.path.join(current_dir, "..", "ui", name)
+        ui_path = os.path.abspath(ui_path)
+        return ui_path
+    
     """
     Base class for all windows. Provides common navigation utilities.
     """
@@ -11,11 +19,11 @@ class BaseWindow(QtWidgets.QMainWindow):
         self.hide()
 
     def go_to_main_menu(self):
-        from preference import PreferenceWindow
+        from frontend.page.preference import PreferenceWindow
         self.open_menu(PreferenceWindow)
 
     def go_to_preferences(self):
-        from preference import PreferenceWindow
+        from frontend.page.preference import PreferenceWindow
         self.open_menu(PreferenceWindow)
 
     def confirm_exit(self):

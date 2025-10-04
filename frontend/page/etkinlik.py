@@ -9,7 +9,7 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 import subprocess
-from mail import MainWindow
+from frontend.page.mail import MainWindow
 from dotenv import load_dotenv
 import os
 
@@ -29,7 +29,9 @@ SCOPES = [
 class UserWindow(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi(r".\ui\second.ui", self)  # ← Burada açılacak UI dosyasını belirtiyorsun
+        path = self.findLocation("second.ui")
+
+        uic.loadUi(path, self)  # ← Burada açılacak UI dosyasını belirtiyorsun
 
         self.pushButton.clicked.connect(self.create_user)
 

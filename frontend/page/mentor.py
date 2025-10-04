@@ -1,7 +1,7 @@
 import sys
 from PyQt6 import QtWidgets, uic
 import requests
-from base_window import BaseWindow
+from .base_window import BaseWindow
 
 
 # 🧭 PyQt6 Arayüzü
@@ -9,7 +9,9 @@ class Mentor(BaseWindow):
     
     def __init__(self,):
         super().__init__()
-        uic.loadUi(r".\ui\mentor.ui", self)  # senin UI dosyanın adı
+        path = self.findLocation("mentor.ui")
+
+        uic.loadUi(path, self)  # senin UI dosyanın adı
 
         #tableWidget ismi senin UI'daki tabloyla aynı olmalı!
         self.load_table_data()

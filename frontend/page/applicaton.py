@@ -7,7 +7,7 @@ from PyQt6.QtPrintSupport import QPrinter, QPrintDialog
 from PyQt6.QtGui import QTextDocument
 from dotenv import load_dotenv
 import os
-from base_window import BaseWindow
+from .base_window import BaseWindow
 
 
 load_dotenv()
@@ -41,7 +41,9 @@ def read_sheet(sheet_id, range_name=os.getenv("RANGE_NAME")):
 class Applications(BaseWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi(r".\ui\application_page.ui", self)
+        path = self.findLocation("application_page.ui")
+
+        uic.loadUi(path, self)
         self.resize(800, 600)
         self.vit1 = read_sheet(os.getenv("VIT1_SPREADSHEET_ID"))
         self.vit2 = read_sheet(os.getenv("VIT2_SPREADSHEET_ID"))

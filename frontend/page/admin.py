@@ -35,7 +35,9 @@ def read_google_sheet():
 class Admin(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi(r".\ui\admin.ui", self)  # senin UI dosyanın adı
+        path = self.findLocation("admin.ui")
+
+        uic.loadUi(path)  # senin UI dosyanın adı
 
         # 📌 tableWidget ismi senin UI'daki tabloyla aynı olmalı!
         self.load_table_data()

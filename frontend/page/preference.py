@@ -1,17 +1,19 @@
 from PyQt6 import QtCore, QtGui, QtWidgets, uic
-from admin import Admin
-from applicaton import Applications
-from mentor import Mentor
-from Interviews import Interviews
-from session import Session
-from base_window import BaseWindow
-
+from .admin import Admin
+from .applicaton import Applications
+from .mentor import Mentor
+from .Interviews import Interviews
+from .utils.session import Session
+from .base_window import BaseWindow
+import os
 
 class PreferenceWindow(BaseWindow):
     def __init__(self):
         super().__init__()
         # UI dosyasını yükle
-        uic.loadUi("ui/preferenceadmin.ui", self)
+
+        path = self.findLocation("preferenceadmin.ui")
+        uic.loadUi(path, self)
         
         session = Session()
 
