@@ -1,2 +1,5 @@
+*.pyc
+*.log
+API/config/vit8-credentials.json
 .env
 credentials.json
