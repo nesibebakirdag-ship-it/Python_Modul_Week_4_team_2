@@ -9,15 +9,17 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 import subprocess
-from mail import MainWindow
 from dotenv import load_dotenv
 import os
+import base64
+from email.mime.text import MIMEText
 
 load_dotenv() 
 
 SCOPES = [
     "https://www.googleapis.com/auth/calendar.readonly",
-    "https://www.googleapis.com/auth/spreadsheets"
+    "https://www.googleapis.com/auth/spreadsheets",
+     "https://www.googleapis.com/auth/gmail.send"
 ]
 
 
@@ -99,12 +101,123 @@ class UserWindow(QtWidgets.QMainWindow):
 #     def __init__(self):
 #         super().__init__()
 #         self.setupUi(self)   
-
 class UserWindow2(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
         uic.loadUi(r".\ui\mail.ui", self)
-        
+
+        self.event_dict = {}  # { "Etkinlik Başlığı": ["mail1", "mail2"] }
+        self.load_calendar_events()
+
+        self.comboBox.currentIndexChanged.connect(self.update_email_field)
+        self.pushButton.clicked.connect(self.send_email_to_selected)
+
+    def load_calendar_events(self):
+        creds = None
+        if os.path.exists("token.json"):
+            creds = Credentials.from_authorized_user_file("token.json", SCOPES)
+
+        if not creds or not creds.valid:
+            if creds and creds.expired and creds.refresh_token:
+                creds.refresh(Request())
+            else:
+                flow = InstalledAppFlow.from_client_secrets_file("credentials.json", SCOPES)
+                creds = flow.run_local_server(port=0)
+            with open("token.json", "w") as token:
+                token.write(creds.to_json())
+
+        try:
+            service = build("calendar", "v3", credentials=creds)
+            now = datetime.datetime.now(tz=datetime.timezone.utc).isoformat()
+            events_result = (
+                service.events()
+                .list(
+                    calendarId="primary",
+                    timeMin=now,
+                    maxResults=50,
+                    singleEvents=True,
+                    orderBy="startTime",
+                )
+                .execute()
+            )
+            events = events_result.get("items", [])
+
+            self.comboBox.clear()
+            self.event_dict.clear()
+
+            if not events:
+                self.comboBox.addItem("Hiç etkinlik bulunamadı.")
+                return
+
+            for event in events:
+                title = event.get("summary", "(Başlıksız Etkinlik)")
+                attendees = event.get("attendees", [])
+                email_list = [att.get("email", "").strip() for att in attendees if att.get("email")]
+                self.event_dict[title] = email_list
+
+            self.comboBox.addItems(sorted(self.event_dict.keys()))
+
+        except HttpError as error:
+            self.comboBox.clear()
+            self.comboBox.addItem(f"Hata: {error}")
+
+    def update_email_field(self):
+        selected_event = self.comboBox.currentText()
+        if selected_event in self.event_dict:
+            emails = self.event_dict[selected_event]
+            self.textEdit.setPlainText("\n".join(emails))
+        else:
+            self.textEdit.clear()
+
+    def send_email_to_selected(self):
+        """textEdit içindeki mail adreslerine mail gönderir."""
+        subject = self.textEdit_2.toPlainText().strip()
+        body = self.textEdit_3.toPlainText().strip()
+
+        raw_emails = self.textEdit.toPlainText().strip()
+        recipients = [e.strip() for e in raw_emails.splitlines() if e.strip()]
+
+        if not recipients:
+            QtWidgets.QMessageBox.warning(self, "Uyarı", "Lütfen textEdit içine en az bir e-posta adresi girin.")
+            return
+
+        if not subject or not body:
+            QtWidgets.QMessageBox.warning(self, "Uyarı", "Lütfen konu ve mesaj içeriğini doldurun.")
+            return
+
+        try:
+            creds = None
+            if os.path.exists("token.json"):
+                creds = Credentials.from_authorized_user_file("token.json", SCOPES)
+
+            if not creds or not creds.valid:
+                if creds and creds.expired and creds.refresh_token:
+                    creds.refresh(Request())
+                else:
+                    flow = InstalledAppFlow.from_client_secrets_file("credentials.json", SCOPES)
+                    creds = flow.run_local_server(port=0)
+                with open("token.json", "w") as token:
+                    token.write(creds.to_json())
+
+            service = build('gmail', 'v1', credentials=creds)
+
+            for to_email in recipients:
+                message = MIMEText(body)
+                message['to'] = to_email
+                message['subject'] = subject
+
+                raw_message = base64.urlsafe_b64encode(message.as_bytes()).decode()
+                send_message = {'raw': raw_message}
+
+                service.users().messages().send(userId="me", body=send_message).execute()
+
+            QtWidgets.QMessageBox.information(self, "Başarılı", f"{len(recipients)} kişiye mail gönderildi ✅")
+
+        except HttpError as error:
+            QtWidgets.QMessageBox.critical(self, "Hata", f"Mail gönderirken hata oluştu:\n{error}")
+
+
+    
     
 
 # 🟦 Ana pencere (Calendar)
