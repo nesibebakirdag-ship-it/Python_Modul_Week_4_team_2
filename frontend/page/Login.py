@@ -6,7 +6,7 @@ import requests
 from enums.ErrorTypeEnum import  ErrorType, ERROR_MAP, ERROR_TEXT
 from .preference import PreferenceWindow
 from .base_window import BaseWindow
-from .utils.session import Session
+
 
 
 class Ui_MainWindow(BaseWindow):
@@ -31,7 +31,8 @@ class Ui_MainWindow(BaseWindow):
         self.label_5 = QtWidgets.QLabel()
         self.label_5.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.label_5.setFixedSize(120, 120)
-        pixmap = QPixmap("../img/logo.png")
+        
+        pixmap = self.set_logo("logo.png")
         pixmap = pixmap.scaled(self.label_5.size(), Qt.AspectRatioMode.KeepAspectRatio,
                                Qt.TransformationMode.SmoothTransformation)
         self.label_5.setPixmap(pixmap)
@@ -115,10 +116,9 @@ class Ui_MainWindow(BaseWindow):
     
         if data is not None:
            # usage
-           session = Session()
-           print(data)
+           session = self.get_session()
            session.role = data["role"]
-           self.open_menu(PreferenceWindow)
+           self.go_to_main_menu()
            self.label_3.hide()  # Başarılı ise hata mesajını gizle
         else:
             error_type = ERROR_MAP.get(error, ErrorType.OTHER)
