@@ -6,19 +6,31 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1012</width>
-    <height>776</height>
+    <width>982</width>
+    <height>739</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>982</width>
+    <height>739</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>982</width>
+    <height>739</height>
+   </size>
+  </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>SEND MAIL</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
       <x>150</x>
-      <y>90</y>
+      <y>106</y>
       <width>651</width>
       <height>521</height>
      </rect>
@@ -27,60 +39,199 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../../../resimler/2.png</pixmap>
+     <pixmap>../img/2.png</pixmap>
     </property>
    </widget>
-   <widget class="QComboBox" name="candidatesComboBox">
+   <widget class="QComboBox" name="comboBox">
     <property name="geometry">
      <rect>
       <x>520</x>
       <y>210</y>
       <width>241</width>
-      <height>31</height>
+      <height>41</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QComboBox {
+    background-color: rgba(0, 120, 215, 0.2);        /* Şeffaf arka plan */
+    border: 2px solid #0078D7;            /* Mavi kenarlık */
+    border-radius: 8px;                   /* Oval kenarlar */
+    color: #000000;                       /* Yazı rengi */
+    font-weight: bold;
+    padding: 5px 10px;
+}
+
+/* Üzerine gelince */
+QComboBox:hover {
+    background-color: rgba(0, 120, 215, 0.8);
+    border-color: #005A9E;
+    color: #005A9E;
+}
+
+/* Tıklanıp açıldığında (focus) */
+QComboBox:focus {
+    background-color: rgba(0, 120, 215, 0.1);
+    border-color: #004578;
+    color: #004578;
+}
+
+/* Açılır liste kısmı */
+QComboBox QAbstractItemView {
+    background-color: white;             /* Açılır listenin arka planı */
+    color: black;                        /* Liste öğelerinin normal yazı rengi */
+    border: 1px solid #0078D7;
+    selection-background-color: #0078D7; /* Seçili elemanın arka planı */
+    selection-color: black;              /* Seçili elemanın yazı rengi */
+}</string>
+    </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QTextEdit" name="textEdit_2">
     <property name="geometry">
      <rect>
       <x>180</x>
-      <y>220</y>
-      <width>291</width>
-      <height>31</height>
+      <y>278</y>
+      <width>581</width>
+      <height>41</height>
      </rect>
     </property>
-   </widget>
-   <widget class="QLineEdit" name="lineEdit_2">
-    <property name="geometry">
-     <rect>
-      <x>180</x>
-      <y>280</y>
-      <width>571</width>
-      <height>31</height>
-     </rect>
+    <property name="styleSheet">
+     <string notr="true">QTextEdit {
+    background-color: transparent;   /* Arka planı şeffaf yapar */
+    border: 2px solid #0078D7;       /* Mavi kenarlık */
+    border-radius: 8px;              /* Kenarları ovalleştirir */
+    color: #000000;                  /* Yazı rengi */
+    font-weight: bold;
+    padding: 5px 10px;
+}
+
+/* Üzerine gelince (hover) efekti */
+QTextEdit:hover {
+    background-color: rgba(0, 120, 215, 0.05); /* Hafif mavi transparan */
+    border-color: #005A9E;                    /* Kenarlığı koyulaştır */
+    color: #005A9E;
+}
+
+/* Focus olduğunda (tıklayınca içine yazı yazma aktifken) */
+QTextEdit:focus {
+    background-color: rgba(0, 120, 215, 0.1);  /* Seçilince biraz daha belirgin arka plan */
+    border-color: #004578;                    /* Kenarlığı daha koyu yap */
+    color: #004578;
+}
+</string>
     </property>
-   </widget>
-   <widget class="QTextEdit" name="textEdit">
-    <property name="geometry">
-     <rect>
-      <x>180</x>
-      <y>320</y>
-      <width>571</width>
-      <height>191</height>
-     </rect>
+    <property name="placeholderText">
+     <string>ENTER YOUR SUBJECT...</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>405</x>
-      <y>525</y>
-      <width>121</width>
+      <x>400</x>
+      <y>526</y>
+      <width>131</width>
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: transparent;   /* Arka planı şeffaf yapar */
+    border: 2px solid #0078D7;       /* Mavi kenarlık ekler */
+    border-radius: 8px;              /* Kenarları ovalleştirir */
+    color: #0078D7;                  /* Yazı rengini mavi yapar */
+    font-weight: bold;
+    padding: 5px 10px;
+}
+
+QPushButton:hover {
+    background-color: rgba(0, 120, 215, 0.1);  /* Hover (üzerine gelince) hafif mavi */
+    border-color: #005A9E;                    /* Kenarlık rengini koyulaştırır */
+    color: #005A9E;
+}
+
+QPushButton:pressed {
+    background-color: rgba(0, 120, 215, 0.2);  /* Basılıyken biraz daha belirgin */
+    border-color: #004578;
+    color: #004578;
+}</string>
+    </property>
     <property name="text">
      <string/>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="textEdit">
+    <property name="geometry">
+     <rect>
+      <x>179</x>
+      <y>210</y>
+      <width>291</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QTextEdit {
+    background-color: transparent;   /* Arka planı şeffaf yapar */
+    border: 2px solid #0078D7;       /* Mavi kenarlık */
+    border-radius: 8px;              /* Kenarları ovalleştirir */
+    color: #000000;                  /* Yazı rengi */
+    font-weight: bold;
+    padding: 5px 10px;
+}
+
+/* Üzerine gelince (hover) efekti */
+QTextEdit:hover {
+    background-color: rgba(0, 120, 215, 0.05); /* Hafif mavi transparan */
+    border-color: #005A9E;                    /* Kenarlığı koyulaştır */
+    color: #005A9E;
+}
+
+/* Focus olduğunda (tıklayınca içine yazı yazma aktifken) */
+QTextEdit:focus {
+    background-color: rgba(0, 120, 215, 0.1);  /* Seçilince biraz daha belirgin arka plan */
+    border-color: #004578;                    /* Kenarlığı daha koyu yap */
+    color: #004578;
+}
+</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="textEdit_3">
+    <property name="geometry">
+     <rect>
+      <x>175</x>
+      <y>320</y>
+      <width>581</width>
+      <height>191</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QTextEdit {
+    background-color: transparent;   /* Arka planı şeffaf yapar */
+    border: 2px solid #0078D7;       /* Mavi kenarlık */
+    border-radius: 8px;              /* Kenarları ovalleştirir */
+    color: #000000;                  /* Yazı rengi */
+    font-weight: bold;
+    padding: 5px 10px;
+}
+
+/* Üzerine gelince (hover) efekti */
+QTextEdit:hover {
+    background-color: rgba(0, 120, 215, 0.05); /* Hafif mavi transparan */
+    border-color: #005A9E;                    /* Kenarlığı koyulaştır */
+    color: #005A9E;
+}
+
+/* Focus olduğunda (tıklayınca içine yazı yazma aktifken) */
+QTextEdit:focus {
+    background-color: rgba(0, 120, 215, 0.1);  /* Seçilince biraz daha belirgin arka plan */
+    border-color: #004578;                    /* Kenarlığı daha koyu yap */
+    color: #004578;
+}
+
+
+
+</string>
+    </property>
+    <property name="placeholderText">
+     <string>ENTER YOUR MESSAGE...</string>
     </property>
    </widget>
   </widget>

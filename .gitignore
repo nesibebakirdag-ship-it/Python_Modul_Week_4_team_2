@@ -1,11 +1,14 @@
-eskicredentials.json
-token.json
 
 .env
 credentials.json
+
+eskicredentials.json
+token.json
+token.pickle
+
 *.pyc
 *.log
 API/config/vit8-credentials.json
-.env
+
 
 

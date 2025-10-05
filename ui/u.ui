@@ -6,12 +6,24 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>992</width>
-    <height>725</height>
+    <width>982</width>
+    <height>739</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>982</width>
+    <height>739</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>982</width>
+    <height>739</height>
+   </size>
+  </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>CRM PROJECT</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label">
@@ -33,19 +45,39 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>230</y>
+      <x>91</x>
+      <y>227</y>
       <width>171</width>
       <height>41</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>14</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">QPushButton {
+    background-color: transparent;   /* Arka planı şeffaf yapar */
+    border: 2px solid #0078D7;       /* Mavi kenarlık ekler */
+    border-radius: 8px;              /* Kenarları ovalleştirir */
+    color: #0078D7;                  /* Yazı rengini mavi yapar */
+    font-weight: bold;
+    padding: 5px 10px;
+}
+
+QPushButton:hover {
+    background-color: rgba(0, 120, 215, 0.1);  /* Hover (üzerine gelince) hafif mavi */
+    border-color: #005A9E;                    /* Kenarlık rengini koyulaştırır */
+    color: #005A9E;
+}
+
+QPushButton:pressed {
+    background-color: rgba(0, 120, 215, 0.2);  /* Basılıyken biraz daha belirgin */
+    border-color: #004578;
+    color: #004578;
+}</string>
     </property>
     <property name="text">
      <string/>
@@ -54,29 +86,55 @@
    <widget class="QTableWidget" name="tableWidget">
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>230</y>
-      <width>611</width>
-      <height>431</height>
+      <x>280</x>
+      <y>220</y>
+      <width>631</width>
+      <height>451</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
     </property>
    </widget>
    <widget class="QPushButton" name="createUserButton">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>310</y>
+      <x>91</x>
+      <y>312</y>
       <width>171</width>
       <height>41</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>14</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: transparent;   /* Arka planı şeffaf yapar */
+    border: 2px solid #0078D7;       /* Mavi kenarlık ekler */
+    border-radius: 8px;              /* Kenarları ovalleştirir */
+    color: #0078D7;                  /* Yazı rengini mavi yapar */
+    font-weight: bold;
+    padding: 5px 10px;
+}
+
+QPushButton:hover {
+    background-color: rgba(0, 120, 215, 0.1);  /* Hover (üzerine gelince) hafif mavi */
+    border-color: #005A9E;                    /* Kenarlık rengini koyulaştırır */
+    color: #005A9E;
+}
+
+QPushButton:pressed {
+    background-color: rgba(0, 120, 215, 0.2);  /* Basılıyken biraz daha belirgin */
+    border-color: #004578;
+    color: #004578;
+}</string>
+    </property>
     <property name="text">
-     <string>Create  User</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_3">
@@ -90,56 +148,125 @@
     </property>
     <property name="font">
      <font>
-      <pointsize>14</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: transparent;   /* Arka planı şeffaf yapar */
+    border: 2px solid #0078D7;       /* Mavi kenarlık ekler */
+    border-radius: 8px;              /* Kenarları ovalleştirir */
+    color: #0078D7;                  /* Yazı rengini mavi yapar */
+    font-weight: bold;
+    padding: 5px 10px;
+}
+
+QPushButton:hover {
+    background-color: rgba(0, 120, 215, 0.1);  /* Hover (üzerine gelince) hafif mavi */
+    border-color: #005A9E;                    /* Kenarlık rengini koyulaştırır */
+    color: #005A9E;
+}
+
+QPushButton:pressed {
+    background-color: rgba(0, 120, 215, 0.2);  /* Basılıyken biraz daha belirgin */
+    border-color: #004578;
+    color: #004578;
+}</string>
+    </property>
     <property name="text">
-     <string>EXIT</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="mailbutton">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>400</y>
-      <width>161</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>14</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>SEND MAIL</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_5">
-    <property name="geometry">
-     <rect>
-      <x>90</x>
-      <y>480</y>
+      <x>91</x>
+      <y>399</y>
       <width>171</width>
       <height>41</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>14</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: transparent;   /* Arka planı şeffaf yapar */
+    border: 2px solid #0078D7;       /* Mavi kenarlık ekler */
+    border-radius: 8px;              /* Kenarları ovalleştirir */
+    color: #0078D7;                  /* Yazı rengini mavi yapar */
+    font-weight: bold;
+    padding: 5px 10px;
+}
+
+QPushButton:hover {
+    background-color: rgba(0, 120, 215, 0.1);  /* Hover (üzerine gelince) hafif mavi */
+    border-color: #005A9E;                    /* Kenarlık rengini koyulaştırır */
+    color: #005A9E;
+}
+
+QPushButton:pressed {
+    background-color: rgba(0, 120, 215, 0.2);  /* Basılıyken biraz daha belirgin */
+    border-color: #004578;
+    color: #004578;
+}</string>
+    </property>
     <property name="text">
-     <string>MAIN MENU</string>
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_5">
+    <property name="geometry">
+     <rect>
+      <x>91</x>
+      <y>484</y>
+      <width>171</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: transparent;   /* Arka planı şeffaf yapar */
+    border: 2px solid #0078D7;       /* Mavi kenarlık ekler */
+    border-radius: 8px;              /* Kenarları ovalleştirir */
+    color: #0078D7;                  /* Yazı rengini mavi yapar */
+    font-weight: bold;
+    padding: 5px 10px;
+}
+
+QPushButton:hover {
+    background-color: rgba(0, 120, 215, 0.1);  /* Hover (üzerine gelince) hafif mavi */
+    border-color: #005A9E;                    /* Kenarlık rengini koyulaştırır */
+    color: #005A9E;
+}
+
+QPushButton:pressed {
+    background-color: rgba(0, 120, 215, 0.2);  /* Basılıyken biraz daha belirgin */
+    border-color: #004578;
+    color: #004578;
+}</string>
+    </property>
+    <property name="text">
+     <string/>
     </property>
    </widget>
    <zorder>label</zorder>
    <zorder>tableWidget</zorder>
-   <zorder>pushButton</zorder>
    <zorder>createUserButton</zorder>
    <zorder>pushButton_3</zorder>
    <zorder>mailbutton</zorder>
    <zorder>pushButton_5</zorder>
+   <zorder>pushButton</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
