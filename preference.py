@@ -5,6 +5,8 @@ from Interviews import Interviews
 from session import Session
 from base_window import BaseWindow
 from etkinlik import CalendarApp
+from PyQt6.QtGui import QPixmap
+from PyQt6.QtCore import Qt, pyqtSignal
 
 
 class PreferenceWindow(BaseWindow):
@@ -18,9 +20,13 @@ class PreferenceWindow(BaseWindow):
         # Role bazlı admin buton görünürlüğü
         if session.role == "admin":
             self.admin_menu.show()
+            self.label_2 = "CRM - Preference Admin Menu"
         else:
             self.admin_menu.hide()
+            self.label_2 = "CRM - Preference Menu"
         
+      
+
         # Butonların click olaylarını bağla
         self.applications.clicked.connect(self.btn_application)
         self.interviews.clicked.connect(self.btn_interviews)
