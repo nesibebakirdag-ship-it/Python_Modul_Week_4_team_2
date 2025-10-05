@@ -13,6 +13,7 @@ from dotenv import load_dotenv
 import os
 import base64
 from email.mime.text import MIMEText
+from base_window import BaseWindow
 
 load_dotenv() 
 
@@ -28,7 +29,7 @@ SCOPES = [
 
 
 # 🟨 İkinci pencereyi temsil eden sınıf
-class UserWindow(QtWidgets.QMainWindow):
+class CreateUser(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
         uic.loadUi(r".\ui\second.ui", self)  # ← Burada açılacak UI dosyasını belirtiyorsun
@@ -46,7 +47,7 @@ class UserWindow(QtWidgets.QMainWindow):
                 creds.refresh(Request())
             else:
                 flow = InstalledAppFlow.from_client_secrets_file(
-                    "eskicredentials.json", SCOPES
+                    "API/config/vit8-credentials.json", SCOPES
                 )
                 creds = flow.run_local_server(port=0)
             with open("token.json", "w") as token:
@@ -101,7 +102,7 @@ class UserWindow(QtWidgets.QMainWindow):
 #     def __init__(self):
 #         super().__init__()
 #         self.setupUi(self)   
-class UserWindow2(QtWidgets.QMainWindow):
+class Mail(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
         uic.loadUi(r".\ui\mail.ui", self)
@@ -218,10 +219,9 @@ class UserWindow2(QtWidgets.QMainWindow):
 
 
     
-    
 
 # 🟦 Ana pencere (Calendar)
-class CalendarApp(QtWidgets.QMainWindow):
+class CalendarApp(BaseWindow):
     def __init__(self):
         super().__init__()
         uic.loadUi(r".\ui\u.ui", self)
@@ -232,15 +232,19 @@ class CalendarApp(QtWidgets.QMainWindow):
         # 🔸 Bu buton başka bir UI açacak (Qt Designer'daki objectName = openUserPageButton)
         self.createUserButton.clicked.connect(self.open_user_window)
         self.mailbutton.clicked.connect(self.open_user_window2)
+        self.pushButton_3.clicked.connect(self.confirm_exit)
+        self.pushButton_5.clicked.connect(self.go_to_main_menu)
+        #5 main
+        #3 exit
 
     def open_user_window2(self):
         """Diğer UI dosyasını açar"""
-        self.user_window = UserWindow2()
+        self.user_window = Mail()
         self.user_window.show()
 
     def open_user_window(self):
         """Diğer UI dosyasını açar"""
-        self.user_window = UserWindow()
+        self.user_window = CreateUser()
         self.user_window.show()
         
 
@@ -255,8 +259,7 @@ class CalendarApp(QtWidgets.QMainWindow):
                 creds.refresh(Request())
             else:
                 flow = InstalledAppFlow.from_client_secrets_file(
-                    "credentials.json", SCOPES
-                )
+                    "API/config/vit8-credentials.json", SCOPES)
                 creds = flow.run_local_server(port=0)
             with open("token.json", "w") as token:
                 token.write(creds.to_json())

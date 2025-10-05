@@ -2,7 +2,7 @@ from PyQt6 import QtCore, QtWidgets
 from PyQt6.QtGui import QPixmap
 from PyQt6.QtCore import Qt, pyqtSignal
 import sys
-from Login import Ui_MainWindow
+from login import Ui_MainWindow
 
 if __name__ == "__main__":
 

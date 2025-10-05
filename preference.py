@@ -1,10 +1,10 @@
 from PyQt6 import QtCore, QtGui, QtWidgets, uic
-from admin import Admin
 from applicaton import Applications
 from mentor import Mentor
 from Interviews import Interviews
 from session import Session
 from base_window import BaseWindow
+from etkinlik import CalendarApp
 
 
 class PreferenceWindow(BaseWindow):
@@ -46,7 +46,7 @@ class PreferenceWindow(BaseWindow):
        self.open_menu(PreferenceWindow)
 
     def btn_admin(self):
-        self.open_menu(Admin)
+        self.open_menu(CalendarApp)
 
 
 # Test için çalıştırılabilir
